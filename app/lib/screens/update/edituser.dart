@@ -49,17 +49,19 @@ class _EditUserState extends State<EditUser> {
       final res = await _api.postUpdateUserData(data, userId);
       final body = json.decode(res.body);
       if (res.statusCode == 200) {
-        ModelUser user = ModelUser.fromJson(body['profil']);
+        ModelUser? user = ModelUser.fromJson(body['profil']);
         providerProfil.saveToLocalStorage(user);
         _api.showSnackBarSuccessPersonalized(context, body['message']);
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => const EditUser()));
       } else {
         _api.showSnackBarErrorPersonalized(context, body["message"]);
+        print( body["message"]);
       }
     } catch (err) {
       _api.showSnackBarErrorPersonalized(context,
           "Erreur lors de l'envoi des données , veuillez réessayer. $err");
+           print( err);
     }
   }
 

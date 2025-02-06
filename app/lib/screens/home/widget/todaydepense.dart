@@ -66,7 +66,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Container(
-        color: isDark ? backgroundDark : Colors.white,
+        color: isDark ? backgroundDark : const Color(0xfff0f1f5),  
         child: Column(
           children: [
             Row(
@@ -126,7 +126,12 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                 stream: dataStream.stream,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
+                     return Container(
+                      child: const Center(child: CircularProgressIndicator(
+                        strokeWidth: BorderSide.strokeAlignInside,
+                        color: Colors.grey,
+                      )),
+                    );
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else if (snapshot.hasData) {
@@ -186,14 +191,22 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Container(
-        padding: const EdgeInsets.all(10),
-        height: 45,
+        padding: const EdgeInsets.all(5),
+        height: 50,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
-                regeneredIcon(context,category?["name_categories".toLowerCase()] ?? ""),
+                Container(
+                    width: 40,
+                  height: 40,
+                  padding: const EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color(0xFF292D4E),
+                  ),
+                  child: regeneredIcon(context,category?["name_categories".toLowerCase()] ?? "")),
                 const SizedBox(
                   width: 10,
                 ),

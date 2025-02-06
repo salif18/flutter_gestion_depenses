@@ -161,24 +161,24 @@ class _MainRoutesState extends State<MainRoutes> {
                 mainAxisSize: MainAxisSize
                     .min, //pour que l'espace column s'adapte a la taille du contenu
                 children: [
-                  TextButton(
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              backgroundColor:
-                                  isDark ? containerBg : Colors.grey[200],
-                              content: const CreateCategories(),
-                            );
-                          },
-                        );
-                      },
-                      child: Text("Créer votre catégorie",
-                          style: GoogleFonts.roboto(
-                              fontSize:  MediaQuery.of(context).size.width*0.05,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black))),
+                  // TextButton(
+                  //     onPressed: () {
+                  //       showDialog(
+                  //         context: context,
+                  //         builder: (BuildContext context) {
+                  //           return AlertDialog(
+                  //             backgroundColor:
+                  //                 isDark ? containerBg : Colors.grey[200],
+                  //             content: const CreateCategories(),
+                  //           );
+                  //         },
+                  //       );
+                  //     },
+                  //     child: Text("Créer votre catégorie",
+                  //         style: GoogleFonts.roboto(
+                  //             fontSize:  MediaQuery.of(context).size.width*0.05,
+                  //             fontWeight: FontWeight.w500,
+                  //             color: Colors.black))),
                   const Divider(
                     height: 2,
                   ),
@@ -187,11 +187,17 @@ class _MainRoutesState extends State<MainRoutes> {
                         _showAddBudget(
                             context, isDark, backgroundDark, textDark);
                       },
-                      child: Text("Entrer le budget du mois",
-                          style: GoogleFonts.roboto(
-                              fontSize:  MediaQuery.of(context).size.width*0.05,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black))),
+                      child: Row(
+                        children: [
+                          Icon(Icons.attach_money_sharp,size: 20 ,color:isDark ? textDark :  Colors.black),
+                          const SizedBox(width: 10),
+                          Text("Entrer le budget du mois",
+                              style: GoogleFonts.roboto(
+                                  fontSize:  MediaQuery.of(context).size.width*0.045,
+                                  fontWeight: FontWeight.w500,
+                                  color:isDark ? textDark :  Colors.black)),
+                        ],
+                      )),
                   const Divider(
                     height: 2,
                   ),
@@ -199,11 +205,17 @@ class _MainRoutesState extends State<MainRoutes> {
                       onPressed: () {
                         _showAdd(context);
                       },
-                      child: Text("Enregistrer vos dépenses",
-                          style: GoogleFonts.roboto(
-                              fontSize:  MediaQuery.of(context).size.width*0.05,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black)))
+                      child: Row(
+                        children: [
+                           Icon(Icons.monetization_on_outlined,size: 20,color:isDark ? textDark :  Colors.black),
+                            const SizedBox(width: 10),
+                          Text("Enregistrer vos dépenses",
+                              style: GoogleFonts.roboto(
+                                  fontSize:  MediaQuery.of(context).size.width*0.045,
+                                  fontWeight: FontWeight.w500,
+                                  color:isDark ? textDark :Colors.black)),
+                        ],
+                      ))
                 ]),
           );
         });

@@ -43,7 +43,7 @@ class ExpensesOfBudget {
   String? budgetId;
   int? amount;
   String? description;
-  String? dateExpenses;
+  DateTime? dateExpenses;
 
   ExpensesOfBudget(
     {
@@ -64,7 +64,8 @@ class ExpensesOfBudget {
         budgetId: json["budgetId"],
         amount: json["amount"],
         description: json["description"],
-        dateExpenses:json["date_expenses"]);
+        dateExpenses: DateTime.parse(json["date_expenses"])
+        );
   }
 
   Map<String, dynamic> toJson() {
@@ -75,7 +76,7 @@ class ExpensesOfBudget {
       "budgetId": budgetId,
       "amount": amount,
       "description": description,
-      "date_expenses": dateExpenses
+      "date_expenses": dateExpenses?.toIso8601String()
     };
   }
 }

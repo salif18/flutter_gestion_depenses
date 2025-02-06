@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gestionary/models/budget.dart';
 import 'package:gestionary/providers/theme_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class SingleBudget extends StatefulWidget {
@@ -28,6 +29,7 @@ class _SingleBudgetState extends State<SingleBudget> {
     Color? containerBg = provider.containerBackg;
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
+    
     return Scaffold(
       backgroundColor: isDark? backgroundDark :Colors.grey[300],
       appBar: AppBar(
@@ -59,7 +61,7 @@ class _SingleBudgetState extends State<SingleBudget> {
             padding: const EdgeInsets.all(20),
             child: Container(
               alignment: Alignment.centerLeft,
-              child: Text("Vos differentes transactions sur ce budget du mois",
+              child: Text("Vos differentes dépenses sur ce budget du mois",
               style:GoogleFonts.roboto(
                 color:isDark ? textDark :null,
                 fontSize: MediaQuery.of(context).size.width*0.04,fontWeight:FontWeight.w400))),
@@ -70,7 +72,7 @@ class _SingleBudgetState extends State<SingleBudget> {
                 scrollDirection: Axis.vertical,
                 itemCount: _receivedData!.depense.length,
                 itemBuilder: (context, index) {
-                  List<ExpensesOfBudget?> expenses = _receivedData!.depense;
+                  List<ExpensesOfBudget?> expenses = _receivedData!.depense.reversed.toList();
                   ExpensesOfBudget? item = expenses[index];
                   return _detailExpenses(context, item, isDark ,containerBg);
                 },
@@ -107,7 +109,7 @@ class _SingleBudgetState extends State<SingleBudget> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("${item?.dateExpenses}",
+                  Text(DateFormat("dd MMM yyyy").format(item?.dateExpenses),
                       style: GoogleFonts.roboto(
                           fontSize:  MediaQuery.of(context).size.width*0.05,
                           fontWeight: FontWeight.w600,

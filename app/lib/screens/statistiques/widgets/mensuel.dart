@@ -16,7 +16,7 @@ class _MensuelsState extends State<Mensuels> {
   Widget build(BuildContext context) {
     return Container(
       height: 110,
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      // padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Consumer<StatisticsProvider>(
         builder: (context, provider, child) {
           return StreamBuilder<List<ModelMonthStats>?>(
@@ -61,7 +61,8 @@ class _MensuelsState extends State<Mensuels> {
   Widget _cardMonthStats(BuildContext context, item) {
     return Container(
       height:  100,
-      width:  MediaQuery.of(context).size.width*0.5,
+      margin: const EdgeInsets.symmetric(horizontal: 5),
+      width:  MediaQuery.of(context).size.width*0.47,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       child: Card(
         elevation: 4,

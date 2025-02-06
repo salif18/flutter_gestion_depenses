@@ -200,7 +200,7 @@ class _MyReglagesState extends State<MyReglages> {
                     "Supprimer mon compte",
                     style: GoogleFonts.roboto(
                       
-                        fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w600,color:const Color(0xFF292D4E)),
+                        fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w600,color:const Color.fromARGB(255, 107, 111, 148)),
                   ),
                 ),
               ),

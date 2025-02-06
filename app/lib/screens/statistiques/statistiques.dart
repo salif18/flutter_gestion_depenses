@@ -73,78 +73,76 @@ class _MyStatsState extends State<MyStats> {
     Color? backgroundDark = provider.colorBackground;
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
-    return  SafeArea(
-        child: RefreshIndicator(
-          backgroundColor: const Color.fromARGB(255, 34, 12, 49),
-          color: Colors.grey[100],
-          onRefresh: _refresh,
-          child: Scaffold(
-            backgroundColor: isDark ? backgroundDark:Colors.white,
-            body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const MyYearBalance(),
-                  Container(height: 1, width: 350, color: Colors.grey[400]),
-                  const SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 24, bottom: 10),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Mensuelle",
+    return  RefreshIndicator(
+      backgroundColor: const Color.fromARGB(255, 34, 12, 49),
+      color: Colors.grey[100],
+      onRefresh: _refresh,
+      child: Scaffold(
+        backgroundColor: isDark ? backgroundDark:Colors.white,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const MyYearBalance(),
+              Container(height: 1, width: 350, color: Colors.grey[400]),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 24, bottom: 10),
+                child: Row(
+                  children: [
+                    Text(
+                      "Mensuelle",
+                      style: GoogleFonts.roboto(
+                        color:isDark ? textDark : null,
+                          fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500),
+                    )
+                  ],
+                ),
+              ),
+              const Mensuels(),
+              const BonusDay(),
+              const AnalyseGeneral(),
+              const SizedBox(height: 20),
+              Padding(
+                  padding: const EdgeInsets.only(left:20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text("Hebdomadaire",
                           style: GoogleFonts.roboto(
                             color:isDark ? textDark : null,
-                              fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500),
-                        )
-                      ],
-                    ),
-                  ),
-                  const Mensuels(),
-                  const BonusDay(),
-                  const AnalyseGeneral(),
-                  const SizedBox(height: 20),
-                  Padding(
-                      padding: const EdgeInsets.only(left:20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text("Hebdomadaire",
-                              style: GoogleFonts.roboto(
-                                color:isDark ? textDark : null,
-                                  fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500)),
-                        ],
-                      )),
-                  const BarChartWidget(),
-                  Padding(
-                      padding: const EdgeInsets.only(left:20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text("Etude detaillée du budget",
-                              style: GoogleFonts.roboto(
-                                color:isDark ? textDark : null,
-                                  fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500)),
-                        ],
-                      )),
-                  const PieChartWidget(),
-                    Padding(
-                      padding: const EdgeInsets.only(left:20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text("Statistics annuel",
-                              style: GoogleFonts.roboto(
-                                color:isDark ? textDark : null,
-                                  fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500)),
-                        ],
-                      )),
-                  const LineChartWidget(),
-                  const SizedBox(height: 20)
-                ],
-              ),
-            ),
+                              fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500)),
+                    ],
+                  )),
+              const BarChartWidget(),
+              Padding(
+                  padding: const EdgeInsets.only(left:20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text("Etude detaillée du budget",
+                          style: GoogleFonts.roboto(
+                            color:isDark ? textDark : null,
+                              fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500)),
+                    ],
+                  )),
+              const PieChartWidget(),
+                Padding(
+                  padding: const EdgeInsets.only(left:20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text("Statistics annuel",
+                          style: GoogleFonts.roboto(
+                            color:isDark ? textDark : null,
+                              fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w500)),
+                    ],
+                  )),
+              const LineChartWidget(),
+              const SizedBox(height: 20)
+            ],
           ),
         ),
+      ),
     );
   }
 }

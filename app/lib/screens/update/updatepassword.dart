@@ -61,10 +61,12 @@ class _UpdatePasswordState extends State<UpdatePassword> {
         } else {
           api.showSnackBarErrorPersonalized(
               context, decodedData["message"].toString());
+                print(decodedData["message"].toString());
         }
       } catch (err) {
         api.showSnackBarErrorPersonalized(context,
             "Erreur lors de l'envoi des données , veuillez réessayer. $err");
+            print(err);
       }
     }
   }

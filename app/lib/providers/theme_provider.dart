@@ -32,10 +32,10 @@ class ThemeProvider extends ChangeNotifier {
 
   void _updateColors() {
     _colorText = isDark ? Colors.grey[200] : null;
-    _colorBackground = isDark ? const Color(0xFF121212) : null;
+    _colorBackground = isDark ? const Color(0xFF252728) : null;
     _containerBackg = isDark ? const Color.fromARGB(226, 29, 29, 29) : null;
     _colorBtn = isDark ? Colors.white : null;
   }
 }
 
-//color sombre 0xFF090D1F , 0xFF000000, 0xFF121212, 0xFF2A2F4C, 0xFF22222E
+//color sombre 0xFF090D1F , 0xFF000000, 0xFF121212, 0xFF2A2F4C, 0xFF22222E, 0xFF252728

@@ -26,7 +26,7 @@ class MyCarousel extends StatelessWidget {
                   physics:const NeverScrollableScrollPhysics(),
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 5, left: 25),
+                      padding: const EdgeInsets.only( left: 25),
                       child: Text("Hebdomadaire",
                           style: GoogleFonts.roboto(
                               fontSize: MediaQuery.of(context).size.width*0.04,
@@ -49,7 +49,7 @@ class MyCarousel extends StatelessWidget {
                               });
                         })),
                     Padding(
-                      padding: const EdgeInsets.only(top: 16),
+                      padding: const EdgeInsets.only(top: 5,bottom: 16),
                       child: SizedBox(
                         height: 120,
                         child: BarChartExpense(),

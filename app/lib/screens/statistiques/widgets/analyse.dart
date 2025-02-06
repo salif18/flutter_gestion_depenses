@@ -306,7 +306,7 @@ class AnalyseGeneral extends StatelessWidget {
                           );
                         } else {
                           return Container(
-                            child: Center(child: Text("No data", style: GoogleFonts.roboto(
+                            child: Center(child: Text("Aucuns données", style: GoogleFonts.roboto(
                                         fontSize:  MediaQuery.of(context).size.width*0.04,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.white,
