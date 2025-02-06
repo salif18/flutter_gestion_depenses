@@ -46,7 +46,7 @@ class AnalyseGeneral extends StatelessWidget {
                               radius: 55,
                               lineWidth: 12,
                               percent: double.parse(item?.percent ?? '0') / 100,
-                              progressColor:double.parse(item?.percent! ?? "0.0") >= 80 ? Colors.red : Colors.blue,
+                              progressColor:double.parse(item?.percent! ?? "0.0") >= 80 ? Colors.red : Colors.blueAccent,
                               backgroundColor:
                                   const Color.fromARGB(64, 64, 83, 255),
                               circularStrokeCap: CircularStrokeCap.round,
@@ -54,7 +54,7 @@ class AnalyseGeneral extends StatelessWidget {
                                 "${item?.percent ?? 0}%",
                                 style: GoogleFonts.roboto(
                                   fontSize:  MediaQuery.of(context).size.width*0.06,
-                                  color: double.parse(item?.percent! ?? "0.0") >= 80 ? Colors.red : Colors.blue,
+                                  color: double.parse(item?.percent! ?? "0.0") >= 80 ? Colors.red : Colors.blueAccent,
                                 ),
                               ),
                             ),
@@ -295,10 +295,10 @@ class AnalyseGeneral extends StatelessWidget {
                                       style: GoogleFonts.roboto(
                                         fontSize:  MediaQuery.of(context).size.width*0.04,
                                         fontWeight: FontWeight.w600,
-                                        color: Colors.white,
+                                        color: Colors.orange,
                                       ),
                                     ),
-                                    Expanded(child: Icon(Icons.monetization_on, color:Colors.grey[200],size: MediaQuery.of(context).size.width*0.06))
+                                    Expanded(child: Icon(Icons.monetization_on, color:Colors.orange,size: MediaQuery.of(context).size.width*0.06))
                                   ],
                                 ),
                               ),
