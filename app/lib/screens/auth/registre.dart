@@ -30,6 +30,7 @@ class _RegistreWidgetState extends State<RegistreWidget> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                    MessageTopWidget(),
+                    const SizedBox(height: 16),
                    FieldFormRegistre(),
             ],
           ),

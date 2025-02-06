@@ -30,6 +30,7 @@ class _LoginState extends State<MyLogin> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                    MessageTopWidget(),
+                   const SizedBox(height: 16),
                    MyFieldForms()
             ],
           ),

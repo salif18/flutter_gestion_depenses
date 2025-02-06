@@ -103,7 +103,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                       )),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(4.0),
                   child: Container(
                       padding: const EdgeInsets.all(10),
                       child: Row(

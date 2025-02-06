@@ -111,7 +111,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                       )),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(0.0),
+                  padding: const EdgeInsets.all(4.0),
                   child: Container(
                       padding: const EdgeInsets.all(10),
                       child: Row(

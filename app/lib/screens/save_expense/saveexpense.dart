@@ -127,8 +127,8 @@ class _SaveExpensesState extends State<SaveExpenses> {
             expenseApi.showSnackBarSuccessPersonalized(
                 context, body["message"]);
 
-            // Navigator.pushReplacement(context,
-            //     MaterialPageRoute(builder: (context) => const SaveExpenses()));
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const SaveExpenses()));
           } else {
             expenseApi.showSnackBarErrorPersonalized(
                 context, "Erreur donnees non enregistres, veuillez réessayer");

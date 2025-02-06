@@ -19,23 +19,6 @@ class MyReglages extends StatefulWidget {
 class _MyReglagesState extends State<MyReglages> {
   AuthServicesApi api = AuthServicesApi();
 
-
-  Future<void> logoutUserClearTokenTosServer(BuildContext context) async {
-    final provider = Provider.of<AuthProvider>(context, listen: false);
-    var token = await provider.token();
-    try {
-      final res = await api.postUserLogoutToken(token);
-      if (res.statusCode == 200) {
-        provider.logoutButton();
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const MyLogin()));
-      }
-    } catch (error) {
-      showSnackBarErrorPersonalized(
-          context, "Erreur lors de la deconnexion. $error");
-    }
-  }
-
   //action supprimer compte
    Future<void> _deleteUserClearTokenTosServer(BuildContext context) async {
     final provider = Provider.of<AuthProvider>(context, listen: false);
@@ -43,7 +26,7 @@ class _MyReglagesState extends State<MyReglages> {
     try {
       final res = await api.postUserLogoutToken(token);
       if (res.statusCode == 200) {
-        provider.logoutButton();
+        provider.logoutButton(context);
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => const MyLogin()));
       }
@@ -161,7 +144,7 @@ class _MyReglagesState extends State<MyReglages> {
             child: InkWell(
               onTap: (){
                  final provider = Provider.of<AuthProvider>(context, listen: false);
-                 provider.logoutButton();
+                 provider.logoutButton(context);
               },
               child: Center(
                 child: Container(     

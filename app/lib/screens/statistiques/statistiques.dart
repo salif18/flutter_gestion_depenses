@@ -84,7 +84,7 @@ class _MyStatsState extends State<MyStats> {
             children: [
               const MyYearBalance(),
               Container(height: 1, width: 350, color: Colors.grey[400]),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(left: 24, bottom: 10),
                 child: Row(
@@ -101,7 +101,7 @@ class _MyStatsState extends State<MyStats> {
               const Mensuels(),
               const BonusDay(),
               const AnalyseGeneral(),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               Padding(
                   padding: const EdgeInsets.only(left:20),
                   child: Row(

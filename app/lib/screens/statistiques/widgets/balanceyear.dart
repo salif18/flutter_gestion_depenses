@@ -98,7 +98,7 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                                   ),
                             );
                           } else {
-                            return const Text("0");
+                            return const Text("");
                           }
                         });
                   }),

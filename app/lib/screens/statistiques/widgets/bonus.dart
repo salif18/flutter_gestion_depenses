@@ -13,7 +13,7 @@ class BonusDay extends StatelessWidget {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(10),
       child: Row(children: [
         Padding(
           padding: const EdgeInsets.all(8),
@@ -23,7 +23,7 @@ class BonusDay extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   color:isDark ? textDark : null,)),
         ),
-        const SizedBox(width: 20),
+        const SizedBox(width: 50),
         Padding(
           padding: const EdgeInsets.all(8),
           child: Container(

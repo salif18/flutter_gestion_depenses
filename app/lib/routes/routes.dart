@@ -189,11 +189,15 @@ class _MainRoutesState extends State<MainRoutes> {
                       },
                       child: Row(
                         children: [
-                          Icon(Icons.attach_money_sharp,size: 20 ,color:isDark ? textDark :  Colors.black),
+                          Container(
+                            padding: const EdgeInsets.all(2),
+                            width: 25,height: 25,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xFF292D4E),),
+                            child: Icon(Icons.attach_money_sharp,size: 20 ,color:Colors.red)),
                           const SizedBox(width: 10),
                           Text("Entrer le budget du mois",
                               style: GoogleFonts.roboto(
-                                  fontSize:  MediaQuery.of(context).size.width*0.045,
+                                  fontSize:  MediaQuery.of(context).size.width*0.043,
                                   fontWeight: FontWeight.w500,
                                   color:isDark ? textDark :  Colors.black)),
                         ],
@@ -207,11 +211,15 @@ class _MainRoutesState extends State<MainRoutes> {
                       },
                       child: Row(
                         children: [
-                           Icon(Icons.monetization_on_outlined,size: 20,color:isDark ? textDark :  Colors.black),
+                           Container(
+                             padding: const EdgeInsets.all(2),
+                            width: 25,height: 25,
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xFF292D4E),),
+                            child: Icon(Icons.monetization_on_outlined,size: 20,color:Colors.orange)),
                             const SizedBox(width: 10),
                           Text("Enregistrer vos dépenses",
                               style: GoogleFonts.roboto(
-                                  fontSize:  MediaQuery.of(context).size.width*0.045,
+                                  fontSize:  MediaQuery.of(context).size.width*0.043,
                                   fontWeight: FontWeight.w500,
                                   color:isDark ? textDark :Colors.black)),
                         ],

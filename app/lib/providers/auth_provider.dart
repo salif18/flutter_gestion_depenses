@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestionary/screens/auth/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthProvider extends ChangeNotifier {
@@ -32,6 +33,7 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
+
   //remove to localstorage
   Future<void> removeToLocalStorage(String key) async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
@@ -48,11 +50,17 @@ class AuthProvider extends ChangeNotifier {
   }
 
   //deconnecter et supprimer userid et token
-  void logoutButton() {
+  void logoutButton(BuildContext context) {
     _token = "";
     removeToLocalStorage("tokenGesta");
     removeToLocalStorage("userIdGesta");
     removeToLocalStorage("profil");
     notifyListeners();
+       // Redirection vers la page de connexion après déconnexion
+  Navigator.pushAndRemoveUntil(
+    context,
+    MaterialPageRoute(builder: (context) => const MyLogin()),
+    (route) => false, // Supprime toutes les pages précédentes
+  );
   }
 }

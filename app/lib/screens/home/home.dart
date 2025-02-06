@@ -105,9 +105,15 @@ class _HomeState extends State<Home> {
                                             builder: (context) =>
                                                 const Budgets()));
                                   },
-                                  icon:Icon(LineIcons.piggyBank,
-                                   color:isDark ? textDark : null,
-                                      size: MediaQuery.of(context).size.width*0.08)),
+                                  icon:Container(
+                                    width: 40,height: 40,
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xFF292D4E),
+                                      borderRadius: BorderRadius.circular(5)),
+                                    child: Icon(LineIcons.balanceScale,
+                                     color:isDark ? textDark : const Color.fromARGB(255, 231, 150, 0),
+                                        size: MediaQuery.of(context).size.width*0.08),
+                                  )),
                               // Text("budgets",
                               //     style: GoogleFonts.aBeeZee(
                               //        color:isDark ? textDark : null,
