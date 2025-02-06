@@ -93,7 +93,7 @@ class _MensuelsState extends State<Mensuels> {
                       style: GoogleFonts.roboto(
                           fontSize:  MediaQuery.of(context).size.width*0.04,
                           fontWeight: FontWeight.w600,
-                          color: Colors.white)),
+                          color: Colors.red)),
                  Expanded(
                   child: Icon(Icons.monetization_on, 
                   color: Colors.greenAccent,

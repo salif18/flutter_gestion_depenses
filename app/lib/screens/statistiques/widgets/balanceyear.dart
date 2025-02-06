@@ -48,10 +48,11 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                               return Text("errer: ${snapshot.error}");
                             } else if (snapshot.hasData) {
                               ModelYearStats? statsYear = snapshot.data;
+                              print(statsYear);
                               return Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Icon(Icons.balance_rounded, size: MediaQuery.of(context).size.width*0.06, color:Color.fromARGB(255, 161, 161, 161)),
+                                  Icon(Icons.balance_rounded, size: MediaQuery.of(context).size.width*0.06, color:Colors.black),
                                   const SizedBox(width: 10),
                                   Text(
                                     "Balance de ${statsYear?.year ?? 0}",
@@ -66,7 +67,23 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                                 ],
                               );
                             } else {
-                              return const Text("");
+                              return Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.balance_rounded, size: MediaQuery.of(context).size.width*0.06, color:Colors.black),
+                                  const SizedBox(width: 10),
+                                  Text(
+                                    "Balance de ",
+                                    style: GoogleFonts.roboto(
+                                      
+                                      fontSize:  MediaQuery.of(context).size.width*0.05,
+                                      fontWeight: FontWeight.w500,
+                                      color:
+                                          isDark ? textDark:const Color.fromARGB(255, 161, 161, 161),
+                                    ),
+                                  ),
+                                ],
+                              );
                             }
                           });
                     })),
@@ -98,7 +115,14 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                                   ),
                             );
                           } else {
-                            return const Text("");
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical:8.0),
+                              child: Text("0 XOF",style: GoogleFonts.roboto(
+                                        fontSize:  MediaQuery.of(context).size.width*0.05,
+                                        fontWeight: FontWeight.w600,
+                                        color:  Colors.red 
+                                      ),),
+                            );
                           }
                         });
                   }),

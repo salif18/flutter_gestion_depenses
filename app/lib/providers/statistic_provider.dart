@@ -81,7 +81,9 @@ class StatisticsProvider extends ChangeNotifier {
       final res = await _statsApi.getStatsByYear(userId);
       if (res.statusCode == 200) {
         dynamic decodedData = jsonDecode(res.body);
+        print(decodedData);
         _statsYearStream.add(ModelYearStats?.fromJson(decodedData));
+        print(_statsYearStream.stream);
         notifyListeners();
       } else {
         return;

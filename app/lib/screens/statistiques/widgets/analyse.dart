@@ -295,7 +295,7 @@ class AnalyseGeneral extends StatelessWidget {
                                       style: GoogleFonts.roboto(
                                         fontSize:  MediaQuery.of(context).size.width*0.04,
                                         fontWeight: FontWeight.w600,
-                                        color: Colors.orange,
+                                        color: Colors.greenAccent,
                                       ),
                                     ),
                                     Expanded(child: Icon(Icons.monetization_on, color:Colors.orange,size: MediaQuery.of(context).size.width*0.06))
