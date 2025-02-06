@@ -2,6 +2,7 @@
 
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_depense.dart';
@@ -47,6 +48,14 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
         expenseApi.showSnackBarErrorPersonalized(
             context, decodedData["message"]);
       }
+    } on SocketException {
+      expenseApi.showSnackBarErrorPersonalized(
+          context, "Problème de connexion : Vérifiez votre Internet.");
+      print("Erreur de connexion : Impossible d'accéder au serveur.");
+    } on TimeoutException {
+      expenseApi.showSnackBarErrorPersonalized(
+          context, "Le serveur ne répond pas. Veuillez réessayer plus tard.");
+      print("Erreur : Temps d'attente dépassé.");
     } catch (err) {
       expenseApi.showSnackBarErrorPersonalized(
           context, "Erreur de serveur, veuillez réessayer. $err");
@@ -66,7 +75,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Container(
-        color: isDark ? backgroundDark : const Color(0xfff0f1f5),  
+        color: isDark ? backgroundDark : const Color(0xfff0f1f5),
         child: Column(
           children: [
             Row(
@@ -78,14 +87,16 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                       padding: const EdgeInsets.all(10),
                       child: Row(
                         children: [
-                           Icon(Icons.calendar_month_rounded,
-                              color: Colors.red, size:MediaQuery.of(context).size.width*0.06),
+                          Icon(Icons.calendar_month_rounded,
+                              color: Colors.red,
+                              size: MediaQuery.of(context).size.width * 0.06),
                           const SizedBox(width: 10),
                           Text(
                             "$day".toLowerCase(),
                             style: GoogleFonts.roboto(
                                 color: isDark ? textDark : null,
-                                fontSize: MediaQuery.of(context).size.width*0.04,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04,
                                 fontWeight: FontWeight.w600),
                           ),
                         ],
@@ -101,7 +112,8 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                             "Total",
                             style: GoogleFonts.roboto(
                                 color: isDark ? textDark : null,
-                                fontSize:  MediaQuery.of(context).size.width*0.04,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04,
                                 fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(
@@ -111,12 +123,14 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                             "$totalDay XOF",
                             style: GoogleFonts.roboto(
                                 color: isDark ? Colors.red : Colors.black,
-                                fontSize:  MediaQuery.of(context).size.width*0.04,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04,
                                 fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(width: 10),
                           Icon(Icons.monetization_on_rounded,
-                              color: Colors.amber, size: MediaQuery.of(context).size.width*0.06),
+                              color: Colors.amber,
+                              size: MediaQuery.of(context).size.width * 0.06),
                         ],
                       )),
                 ),
@@ -126,8 +140,9 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                 stream: dataStream.stream,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                     return Container(
-                      child: const Center(child: CircularProgressIndicator(
+                    return Container(
+                      child: const Center(
+                          child: CircularProgressIndicator(
                         strokeWidth: BorderSide.strokeAlignInside,
                         color: Colors.grey,
                       )),
@@ -144,14 +159,17 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                             Text(
                               "Salut n'oublier pas d'insérer vos dépenses du jours",
                               style: GoogleFonts.roboto(
-                                  fontSize:  MediaQuery.of(context).size.width*0.04,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.04,
                                   fontWeight: FontWeight.w300,
                                   color: isDark ? textDark : Colors.black),
                             ),
                             const SizedBox(height: 20),
                             ElevatedButton(
                               onPressed: () => _showAddExpenses(context),
-                              child: Icon(Icons.add, size:  MediaQuery.of(context).size.width*0.06),
+                              child: Icon(Icons.add,
+                                  size:
+                                      MediaQuery.of(context).size.width * 0.06),
                             )
                           ],
                         ),
@@ -173,7 +191,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                         child: Text(
                       "aucunes donnees",
                       style: GoogleFonts.roboto(
-                        fontSize:  MediaQuery.of(context).size.width*0.04,
+                        fontSize: MediaQuery.of(context).size.width * 0.04,
                         fontWeight: FontWeight.w300,
                         color: isDark ? textDark : null,
                       ),
@@ -200,20 +218,21 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
               children: [
                 Container(
                     width: 40,
-                  height: 40,
-                  padding: const EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: const Color(0xFF292D4E),
-                  ),
-                  child: regeneredIcon(context,category?["name_categories".toLowerCase()] ?? "")),
+                    height: 40,
+                    padding: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color(0xFF292D4E),
+                    ),
+                    child: regeneredIcon(context,
+                        category?["name_categories".toLowerCase()] ?? "")),
                 const SizedBox(
                   width: 10,
                 ),
                 Text(category?["name_categories"] ?? "",
                     style: GoogleFonts.roboto(
                         color: isDark ? textDark : null,
-                        fontSize:  MediaQuery.of(context).size.width*0.04,
+                        fontSize: MediaQuery.of(context).size.width * 0.04,
                         fontWeight: FontWeight.w400)),
               ],
             ),
@@ -222,13 +241,14 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                 Text("${expense.amount} XOF",
                     style: GoogleFonts.roboto(
                         color: isDark ? Colors.green : Colors.black,
-                        fontSize:  MediaQuery.of(context).size.width*0.04,
+                        fontSize: MediaQuery.of(context).size.width * 0.04,
                         fontWeight: FontWeight.w600)),
                 const SizedBox(
                   width: 10,
                 ),
-                 Icon(Icons.monetization_on_sharp,
-                    size: MediaQuery.of(context).size.width*0.06, color: Colors.amber)
+                Icon(Icons.monetization_on_sharp,
+                    size: MediaQuery.of(context).size.width * 0.06,
+                    color: Colors.amber)
               ],
             ),
           ],

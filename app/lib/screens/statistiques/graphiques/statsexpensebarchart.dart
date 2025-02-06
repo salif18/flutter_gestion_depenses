@@ -4,6 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:gestionary/models/week_stats.dart';
 import 'package:gestionary/providers/statistic_provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
@@ -32,7 +33,11 @@ class BarChartExpenseState extends State<BarChartExpense> {
     final provider = Provider.of<StatisticsProvider>(context);
     List<ModelWeekStats?>? receivedDataWeek = provider.receivedDataWeekNoStream;
     return receivedDataWeek!.isEmpty
-        ? const Center(child: CircularProgressIndicator())
+        ? Center(
+            child: Text("Aucuns données disponibles",
+                style: GoogleFonts.roboto(
+                    fontSize: MediaQuery.of(context).size.width * 0.04,
+                    color: Colors.white)))
         : AspectRatio(
             aspectRatio: 1,
             child: Stack(

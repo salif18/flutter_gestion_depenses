@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
+import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:date_field/date_field.dart';
 import 'package:flutter/material.dart';
@@ -46,8 +48,8 @@ class _SaveExpensesState extends State<SaveExpenses> {
 
 //recuperer les cetegories par defaults
   Future<void> getCategoriesForm() async {
-     final provider = Provider.of<AuthProvider>(context, listen: false);
-       var userId = await provider.userId();
+    final provider = Provider.of<AuthProvider>(context, listen: false);
+    var userId = await provider.userId();
     try {
       final res = await categApi.getCategories(userId);
       dynamic decodedData = jsonDecode(res.body);
@@ -58,6 +60,14 @@ class _SaveExpensesState extends State<SaveExpenses> {
               .toList();
         });
       }
+    } on SocketException {
+      categApi.showSnackBarErrorPersonalized(
+          context, "Problème de connexion : Vérifiez votre Internet.");
+      print("Erreur de connexion : Impossible d'accéder au serveur.");
+    } on TimeoutException {
+      categApi.showSnackBarErrorPersonalized(
+          context, "Le serveur ne répond pas. Veuillez réessayer plus tard.");
+      print("Erreur : Temps d'attente dépassé.");
     } catch (err) {
       throw Exception(err);
     }
@@ -76,6 +86,14 @@ class _SaveExpensesState extends State<SaveExpenses> {
       } else {
         return;
       }
+    } on SocketException {
+      _budgetApi.showSnackBarSuccessPersonalized(
+          context, "Problème de connexion : Vérifiez votre Internet.");
+      print("Erreur de connexion : Impossible d'accéder au serveur.");
+    } on TimeoutException {
+      _budgetApi.showSnackBarSuccessPersonalized(
+          context, "Le serveur ne répond pas. Veuillez réessayer plus tard.");
+      print("Erreur : Temps d'attente dépassé.");
     } catch (err) {
       throw Exception(err);
     }
@@ -108,7 +126,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
           if (response.statusCode == 201) {
             expenseApi.showSnackBarSuccessPersonalized(
                 context, body["message"]);
-                
+
             // Navigator.pushReplacement(context,
             //     MaterialPageRoute(builder: (context) => const SaveExpenses()));
           } else {
@@ -141,10 +159,10 @@ class _SaveExpensesState extends State<SaveExpenses> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Scaffold(
-      backgroundColor:isDark? backgroundDark: Colors.grey[200],
+      backgroundColor: isDark ? backgroundDark : Colors.grey[200],
       appBar: AppBar(
         toolbarHeight: 85,
-        backgroundColor: isDark? backgroundDark:Colors.grey[200],
+        backgroundColor: isDark ? backgroundDark : Colors.grey[200],
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Container(
@@ -152,22 +170,23 @@ class _SaveExpensesState extends State<SaveExpenses> {
                 width: 35,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
-                    color: isDark? backgroundDark:Colors.grey[100]
+                    color: isDark ? backgroundDark : Colors.grey[100]
                     // const Color.fromARGB(255, 60, 66, 122)
                     ),
                 child: Icon(Icons.arrow_back_ios_new_rounded,
-                    size:  MediaQuery.of(context).size.width*0.05, color: Colors.grey[400]))),
+                    size: MediaQuery.of(context).size.width * 0.05,
+                    color: Colors.grey[400]))),
       ),
       body: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: isDark? containerBg:Colors.white,
+          color: isDark ? containerBg : Colors.white,
           borderRadius: BorderRadius.circular(20),
         ),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              _text(context,isDark ,textDark),
+              _text(context, isDark, textDark),
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: Form(
@@ -191,7 +210,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
     );
   }
 
-  Widget _text(BuildContext context,isDark,textDark) {
+  Widget _text(BuildContext context, isDark, textDark) {
     return Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -201,8 +220,8 @@ class _SaveExpensesState extends State<SaveExpenses> {
               padding: const EdgeInsets.all(8.0),
               child: Text("Nouvelles dépenses",
                   style: GoogleFonts.roboto(
-                      fontSize:  MediaQuery.of(context).size.width*0.04,
-                      color: isDark ? textDark:Colors.black,
+                      fontSize: MediaQuery.of(context).size.width * 0.04,
+                      color: isDark ? textDark : Colors.black,
                       fontWeight: FontWeight.w500)),
             ),
             Padding(
@@ -210,8 +229,10 @@ class _SaveExpensesState extends State<SaveExpenses> {
               child: Text(
                   "Enregistrer toutes vos dépenses effectuees de la journee",
                   style: GoogleFonts.aBeeZee(
-                      fontSize: MediaQuery.of(context).size.width*0.04,
-                      color: isDark ? textDark:const Color.fromARGB(255, 46, 44, 44),
+                      fontSize: MediaQuery.of(context).size.width * 0.04,
+                      color: isDark
+                          ? textDark
+                          : const Color.fromARGB(255, 46, 44, 44),
                       fontWeight: FontWeight.w300)),
             )
           ],
@@ -232,14 +253,16 @@ class _SaveExpensesState extends State<SaveExpenses> {
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
           hintText: "Montant",
-          hintStyle: GoogleFonts.roboto(fontSize:  MediaQuery.of(context).size.width*0.04),
+          hintStyle: GoogleFonts.roboto(
+              fontSize: MediaQuery.of(context).size.width * 0.04),
           fillColor: Colors.grey[100],
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: BorderSide.none,
           ),
-          prefixIcon: Icon(Icons.monetization_on_outlined, size:  MediaQuery.of(context).size.width*0.05),
+          prefixIcon: Icon(Icons.monetization_on_outlined,
+              size: MediaQuery.of(context).size.width * 0.05),
         ),
       ),
     );
@@ -251,7 +274,8 @@ class _SaveExpensesState extends State<SaveExpenses> {
       child: DropdownButtonFormField(
           hint: Text("Choisir une categories",
               style: GoogleFonts.roboto(
-                  fontSize:  MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500)),
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
+                  fontWeight: FontWeight.w500)),
           value: selectedCategoryValue,
           validator: (value) {
             if (value!.isEmpty) {
@@ -271,7 +295,8 @@ class _SaveExpensesState extends State<SaveExpenses> {
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none,
             ),
-            prefixIcon: Icon(Icons.category_outlined, size:  MediaQuery.of(context).size.width*0.05),
+            prefixIcon: Icon(Icons.category_outlined,
+                size: MediaQuery.of(context).size.width * 0.05),
           ),
           items: modelCategories.map((categorie) {
             return DropdownMenuItem<String?>(
@@ -279,7 +304,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
               child: Text(
                 categorie.categoryName ?? "",
                 style: GoogleFonts.roboto(
-                  fontSize: MediaQuery.of(context).size.width*0.04,
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
                   color: Colors.black,
                 ),
               ),
@@ -303,7 +328,9 @@ class _SaveExpensesState extends State<SaveExpenses> {
         maxLines: null,
         decoration: InputDecoration(
           hintText: "Description",
-          hintStyle: GoogleFonts.roboto(fontSize:  MediaQuery.of(context).size.width*0.04,),
+          hintStyle: GoogleFonts.roboto(
+            fontSize: MediaQuery.of(context).size.width * 0.04,
+          ),
           fillColor: Colors.grey[100],
           filled: true,
           border: OutlineInputBorder(
@@ -311,7 +338,8 @@ class _SaveExpensesState extends State<SaveExpenses> {
             borderSide: BorderSide.none,
           ),
           prefixIcon: Icon(Icons.list_alt_rounded,
-              color: Color.fromARGB(255, 5, 5, 5), size:  MediaQuery.of(context).size.width*0.05),
+              color: Color.fromARGB(255, 5, 5, 5),
+              size: MediaQuery.of(context).size.width * 0.05),
         ),
       ),
     );
@@ -331,7 +359,8 @@ class _SaveExpensesState extends State<SaveExpenses> {
             borderSide: BorderSide.none,
           ),
           prefixIcon: Icon(Icons.calendar_month_rounded,
-              color: Color.fromARGB(255, 255, 136, 128), size:  MediaQuery.of(context).size.width*0.05),
+              color: Color.fromARGB(255, 255, 136, 128),
+              size: MediaQuery.of(context).size.width * 0.05),
         ),
         hideDefaultSuffixIcon: true,
         mode: DateTimeFieldPickerMode.date,
@@ -355,11 +384,13 @@ class _SaveExpensesState extends State<SaveExpenses> {
             minimumSize: const Size(double.infinity, 60),
           ),
           onPressed: postToServerData,
-          icon: Icon(Icons.save_outlined, color: Colors.grey[100], size:  MediaQuery.of(context).size.width*0.05),
+          icon: Icon(Icons.save_outlined,
+              color: Colors.grey[100],
+              size: MediaQuery.of(context).size.width * 0.05),
           label: Text(
             "Enregistrer",
             style: GoogleFonts.roboto(
-                fontSize:  MediaQuery.of(context).size.width*0.04,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
                 fontWeight: FontWeight.w500,
                 color: Colors.grey[100]),
           ),

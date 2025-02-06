@@ -47,7 +47,7 @@ class _PieChatWidgetState extends State<PieChartWidget> {
                 ];
                 if(pieData.isEmpty){
                      return Center(
-                    child: Text("Aucuns donnees",
+                    child: Text("Aucuns données",
                         style: GoogleFonts.roboto(fontSize: 20)));
                 }else{
                 return Padding(
@@ -91,8 +91,12 @@ class _PieChatWidgetState extends State<PieChartWidget> {
                 }
               } else {
                return Center(
-                    child: Text("Aucuns donnees",
-                        style: GoogleFonts.roboto(fontSize: 20)));
+                    child: Container(
+                      height: 200,
+                      alignment: Alignment.center,
+                      child: Text("Aucuns données",
+                          style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04)),
+                    ));
               }
       });
       },

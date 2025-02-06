@@ -45,7 +45,7 @@ class BudgetApi {
   void showSnackBarSuccessPersonalized(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(message,
-          style: GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.w500)),
+          style: GoogleFonts.roboto(fontSize:MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500)),
       backgroundColor: const Color(0xFF292D4E),
       // const Color(0xFF292D4E),
       duration: const Duration(seconds: 5),

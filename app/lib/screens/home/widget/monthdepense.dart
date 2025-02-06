@@ -3,6 +3,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:core';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_depense.dart';
@@ -48,9 +49,18 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
         expenseApi.showSnackBarErrorPersonalized(
             context, decodedData["message"]);
       }
+    } on SocketException {
+      expenseApi.showSnackBarErrorPersonalized(
+          context, "Problème de connexion : Vérifiez votre Internet.");
+      print("Erreur de connexion : Impossible d'accéder au serveur.");
+    } on TimeoutException {
+      expenseApi.showSnackBarErrorPersonalized(
+          context, "Le serveur ne répond pas. Veuillez réessayer plus tard.");
+      print("Erreur : Temps d'attente dépassé.");
     } catch (err) {
       expenseApi.showSnackBarErrorPersonalized(
           context, "Erreur de serveur, veuillez réessayer. $err");
+      print(err);
     }
   }
 
@@ -73,7 +83,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Container(
-        color: isDark ? backgroundDark : const Color(0xfff0f1f5),  
+        color: isDark ? backgroundDark : const Color(0xfff0f1f5),
         child: Column(
           children: [
             Row(
@@ -86,13 +96,16 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                       child: Row(
                         children: [
                           Icon(Icons.calendar_month_rounded,
-                              color: Colors.red, size: MediaQuery.of(context).size.width*0.06),
+                              color: Colors.red,
+                              size: MediaQuery.of(context).size.width * 0.06),
                           const SizedBox(width: 10),
                           Text(
                             "$month",
                             style: GoogleFonts.roboto(
-                              color:isDark ? textDark : null,
-                                fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w600),
+                                color: isDark ? textDark : null,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04,
+                                fontWeight: FontWeight.w600),
                           ),
                         ],
                       )),
@@ -106,19 +119,24 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                           Text(
                             "Total",
                             style: GoogleFonts.roboto(
-                              color:isDark ? textDark : null,
-                                fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w600),
+                                color: isDark ? textDark : null,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04,
+                                fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(width: 5),
                           Text(
                             "$totalMonth XOF",
                             style: GoogleFonts.roboto(
-                              color: isDark? Colors.red : Colors.black,
-                                fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w600),
+                                color: isDark ? Colors.red : Colors.black,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04,
+                                fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(width: 10),
                           Icon(Icons.monetization_on_rounded,
-                              color: Colors.amber, size: MediaQuery.of(context).size.width*0.06),
+                              color: Colors.amber,
+                              size: MediaQuery.of(context).size.width * 0.06),
                         ],
                       )),
                 ),
@@ -129,7 +147,8 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Container(
-                      child: const Center(child: CircularProgressIndicator(
+                      child: const Center(
+                          child: CircularProgressIndicator(
                         strokeWidth: BorderSide.strokeAlignInside,
                         color: Colors.grey,
                       )),
@@ -147,14 +166,17 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                             Text(
                               "Salut n'oublier pas d'insérer vos dépenses du jours",
                               style: GoogleFonts.roboto(
-                                  fontSize: MediaQuery.of(context).size.width*0.04,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.04,
                                   fontWeight: FontWeight.w300,
-                                  color:isDark ? textDark : null),
+                                  color: isDark ? textDark : null),
                             ),
                             const SizedBox(height: 20),
                             ElevatedButton(
                               onPressed: () => _showAddExpenses(context),
-                              child: Icon(Icons.add, size:  MediaQuery.of(context).size.width*0.06),
+                              child: Icon(Icons.add,
+                                  size:
+                                      MediaQuery.of(context).size.width * 0.06),
                             )
                           ],
                         ),
@@ -194,34 +216,38 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
             Row(
               children: [
                 Container(
-                  width: 40,
-                  height: 40,
-                  padding: const EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: const Color(0xFF292D4E),
-                  ),
-                  child: regeneredIcon(context,category?["name_categories".toLowerCase()] ?? "")),
+                    width: 40,
+                    height: 40,
+                    padding: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color(0xFF292D4E),
+                    ),
+                    child: regeneredIcon(context,
+                        category?["name_categories".toLowerCase()] ?? "")),
                 const SizedBox(
                   width: 10,
                 ),
                 Text(category?["name_categories"] ?? "",
                     style: GoogleFonts.roboto(
-                      color:isDark ? textDark :null,
-                        fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w400)),
+                        color: isDark ? textDark : null,
+                        fontSize: MediaQuery.of(context).size.width * 0.04,
+                        fontWeight: FontWeight.w400)),
               ],
             ),
             Row(
               children: [
                 Text("${expense.amount} XOF",
                     style: GoogleFonts.roboto(
-                      color: isDark ? Colors.green : Colors.black,
-                        fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w800)),
+                        color: isDark ? Colors.green : Colors.black,
+                        fontSize: MediaQuery.of(context).size.width * 0.04,
+                        fontWeight: FontWeight.w800)),
                 const SizedBox(
                   width: 10,
                 ),
                 Icon(Icons.monetization_on_sharp,
-                    size:MediaQuery.of(context).size.width*0.06, color: Colors.amber)
+                    size: MediaQuery.of(context).size.width * 0.06,
+                    color: Colors.amber)
               ],
             ),
           ],
@@ -251,4 +277,3 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
     );
   }
 }
-

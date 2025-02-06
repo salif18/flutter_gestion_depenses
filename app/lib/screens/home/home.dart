@@ -138,22 +138,22 @@ class _HomeState extends State<Home> {
                       padding: const EdgeInsets.only(top: 20),
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(40),
-                            topRight: Radius.circular(40)),
+                            topLeft: Radius.circular(25),
+                            topRight: Radius.circular(25)),
                         color:isDark ? backgroundDark : const Color(0xfff0f1f5),                          
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: Material(
-                          color: const Color(0xFFD5CEDD),
-                          shape: const RoundedRectangleBorder(
+                          color: const Color(0xFFD5CEDD),       
+                          shape: const RoundedRectangleBorder(                      
                               borderRadius: BorderRadius.horizontal(
-                                  left: Radius.circular(20),
-                                  right: Radius.circular(20))),
-                          child: TabBar(
+                                  left: Radius.circular(2),
+                                  right: Radius.circular(2))),
+                          child: TabBar(                            
                             indicator: BoxDecoration(
                                 color: const Color(0xFF292D4E),
-                                borderRadius: BorderRadius.circular(20)),
+                                borderRadius: BorderRadius.circular(0)),
                             indicatorSize: TabBarIndicatorSize.tab,
                             labelColor:
                                 const Color.fromARGB(255, 253, 253, 253),

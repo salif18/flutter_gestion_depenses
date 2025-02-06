@@ -32,7 +32,7 @@ class CategoriesApi {
   void showSnackBarSuccessPersonalized(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(message,
-          style: GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.w500)),
+          style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500)),
       backgroundColor: const Color(0xFF292D4E),
       duration: const Duration(seconds: 5),
       action: SnackBarAction(
@@ -47,8 +47,8 @@ class CategoriesApi {
   void showSnackBarErrorPersonalized(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(message,
-          style: GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.w500)),
-      backgroundColor: const Color.fromARGB(255, 255, 35, 19),
+          style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500)),
+      backgroundColor: const Color(0xFF292D4E),
       duration: const Duration(seconds: 5),
       action: SnackBarAction(
         label: "",

@@ -1,6 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:gestionary/api/api_categories.dart';
@@ -29,12 +31,9 @@ class _CreateCategoriesState extends State<CreateCategories> {
 
   Future<void> sendCategorie() async {
     if (_formKey.currentState!.validate()) {
-       final provider = Provider.of<AuthProvider>(context, listen: false);
-       var userId = await provider.userId();
-       var data = {
-        "userId":userId,
-        "name_categories": nameCategorie.text
-        };
+      final provider = Provider.of<AuthProvider>(context, listen: false);
+      var userId = await provider.userId();
+      var data = {"userId": userId, "name_categories": nameCategorie.text};
       try {
         showDialog(
             context: context,
@@ -48,7 +47,7 @@ class _CreateCategoriesState extends State<CreateCategories> {
         if (res.statusCode == 201) {
           _cateApi.showSnackBarSuccessPersonalized(
               context, decodedData["message"].toString());
-              Navigator.pop(context);
+          Navigator.pop(context);
           // Navigator.pushReplacement(
           //     context,
           //     MaterialPageRoute(
@@ -57,6 +56,14 @@ class _CreateCategoriesState extends State<CreateCategories> {
           _cateApi.showSnackBarErrorPersonalized(
               context, decodedData["message"]);
         }
+      } on SocketException {
+        _cateApi.showSnackBarErrorPersonalized(
+            context, "Problème de connexion : Vérifiez votre Internet.");
+        print("Erreur de connexion : Impossible d'accéder au serveur.");
+      } on TimeoutException {
+        _cateApi.showSnackBarErrorPersonalized(
+            context, "Le serveur ne répond pas. Veuillez réessayer plus tard.");
+        print("Erreur : Temps d'attente dépassé.");
       } catch (e) {
         _cateApi.showSnackBarErrorPersonalized(
             context, "Erreur de serveur . Veuillez reessayer");
@@ -81,7 +88,7 @@ class _CreateCategoriesState extends State<CreateCategories> {
                   child: Text("Personnaliser vos catégories",
                       style: GoogleFonts.roboto(
                           color: isDark ? textDark : null,
-                          fontSize:  MediaQuery.of(context).size.width*0.05,
+                          fontSize: MediaQuery.of(context).size.width * 0.05,
                           fontWeight: FontWeight.w300))),
               _categorieForm(context),
               const SizedBox(height: 20),
@@ -110,7 +117,7 @@ class _CreateCategoriesState extends State<CreateCategories> {
               filled: true,
               hintText: "Nom de la catégorie",
               hintStyle: GoogleFonts.roboto(
-                fontSize:  MediaQuery.of(context).size.width*0.04,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
                 fontWeight: FontWeight.w400,
                 color: const Color.fromARGB(255, 38, 38, 85),
               ),
@@ -121,7 +128,7 @@ class _CreateCategoriesState extends State<CreateCategories> {
               prefixIcon: Icon(
                 Icons.category_outlined,
                 color: Color.fromARGB(255, 38, 38, 85),
-                size:  MediaQuery.of(context).size.width*0.05,
+                size: MediaQuery.of(context).size.width * 0.05,
               ),
             )));
   }
@@ -136,6 +143,7 @@ class _CreateCategoriesState extends State<CreateCategories> {
             onPressed: sendCategorie,
             child: Text("Sauvegarder",
                 style: GoogleFonts.roboto(
-                    fontSize:  MediaQuery.of(context).size.width*0.04, color: Colors.grey[200]))));
+                    fontSize: MediaQuery.of(context).size.width * 0.04,
+                    color: Colors.grey[200]))));
   }
 }

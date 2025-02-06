@@ -234,7 +234,7 @@ class AnalyseGeneral extends StatelessWidget {
                           );
                         } else {
                           return Container(
-                            child: Center(child: Text("Pas de donnees enregistre",style: GoogleFonts.roboto(color: Colors.white, fontSize: MediaQuery.of(context).size.width*0.04),)),
+                            child: Center(child: Text("Pas de données enregistrés",style: GoogleFonts.roboto(color: Colors.white, fontSize: MediaQuery.of(context).size.width*0.04),)),
                           );
                         }
                       },
