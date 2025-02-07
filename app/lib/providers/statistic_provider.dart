@@ -83,7 +83,7 @@ class StatisticsProvider extends ChangeNotifier {
         dynamic decodedData = jsonDecode(res.body);
         print(decodedData);
         _statsYearStream.add(ModelYearStats?.fromJson(decodedData));
-        print(_statsYearStream.stream);
+      
         notifyListeners();
       } else {
         return;

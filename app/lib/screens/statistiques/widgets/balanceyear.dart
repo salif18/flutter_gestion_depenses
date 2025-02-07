@@ -55,7 +55,7 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                                   Icon(Icons.balance_rounded, size: MediaQuery.of(context).size.width*0.06, color:Colors.black),
                                   const SizedBox(width: 10),
                                   Text(
-                                    "Balance de ${statsYear?.year ?? 0}",
+                                    "Balance de ${statsYear?.year}",
                                     style: GoogleFonts.roboto(
                                       
                                       fontSize:  MediaQuery.of(context).size.width*0.05,
@@ -73,7 +73,7 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                                   Icon(Icons.balance_rounded, size: MediaQuery.of(context).size.width*0.06, color:Colors.black),
                                   const SizedBox(width: 10),
                                   Text(
-                                    "Balance de ",
+                                    "Balance ",
                                     style: GoogleFonts.roboto(
                                       
                                       fontSize:  MediaQuery.of(context).size.width*0.05,
