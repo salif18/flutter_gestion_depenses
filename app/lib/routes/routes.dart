@@ -3,7 +3,6 @@ import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/screens/budgets/addbudgets.dart';
 import 'package:gestionary/screens/home/home.dart';
 import 'package:gestionary/screens/Profile/profil.dart';
-import 'package:gestionary/screens/save_expense/save_categorie.dart';
 import 'package:gestionary/screens/save_expense/saveexpense.dart';
 import 'package:gestionary/screens/statistiques/statistiques.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,20 +38,20 @@ class _MainRoutesState extends State<MainRoutes> {
     bool isDark = provider.isDark;
     return Container(
       color: isDark ? backgroundDark : Colors.grey[200],
-      padding: const EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.03),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            padding: const EdgeInsets.all(2),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.01),
             decoration: BoxDecoration(
               color: const Color(0xFF292D4E),
-              borderRadius: BorderRadius.circular(50),
+              borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*0.13),
             ),
             child: SafeArea(
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                    EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.0277, vertical: MediaQuery.of(context).size.width*0.022),
                 child: GNav(
                   onTabChange: (index) {
                     setState(() {
@@ -64,7 +63,7 @@ class _MainRoutesState extends State<MainRoutes> {
                   duration: const Duration(milliseconds: 600),
                   curve: Curves.easeInOut,
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                      EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.0555, vertical: MediaQuery.of(context).size.width*0.021),
                   color: Colors.white,
                   textSize:  MediaQuery.of(context).size.width*0.04,
                   textStyle: GoogleFonts.roboto(
@@ -81,7 +80,7 @@ class _MainRoutesState extends State<MainRoutes> {
             ),
           ),
           CircleAvatar(
-            radius: 35,
+            radius: MediaQuery.of(context).size.width*0.08,
             backgroundColor: const Color(0xFF292D4E),
             child: IconButton(
               onPressed: () {
@@ -105,13 +104,13 @@ class _MainRoutesState extends State<MainRoutes> {
         Color? backgroundDark = provider.colorBackground;
         bool isDark = provider.isDark;
         return Container(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.05),
             height: MediaQuery.of(context).size.height * 0.9,
             decoration: BoxDecoration(
               color: isDark ? backgroundDark : Colors.grey[200],
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(25),
-                topRight: Radius.circular(25),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(MediaQuery.of(context).size.width*0.07),
+                topRight: Radius.circular(MediaQuery.of(context).size.width*0.07),
               ),
             ),
             child: const SaveExpenses());
@@ -126,11 +125,11 @@ class _MainRoutesState extends State<MainRoutes> {
         builder: (BuildContext context) {
           return Container(
             decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(MediaQuery.of(context).size.width*0.07), topRight: Radius.circular(MediaQuery.of(context).size.width*0.07)),
               color: isDark ? background : Colors.grey[200],
             ),
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.05),
             height: MediaQuery.of(context).size.height * 0.6,
             child: const AddBudget(),
           );
@@ -156,7 +155,7 @@ class _MainRoutesState extends State<MainRoutes> {
                         fontSize:  MediaQuery.of(context).size.width*0.05,
                         fontWeight: FontWeight.w600))),
             contentPadding:
-                const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width*0.055, horizontal: MediaQuery.of(context).size.width*0.055),
             content: Column(
                 mainAxisSize: MainAxisSize
                     .min, //pour que l'espace column s'adapte a la taille du contenu
@@ -190,10 +189,10 @@ class _MainRoutesState extends State<MainRoutes> {
                       child: Row(
                         children: [
                           Container(
-                            padding: const EdgeInsets.all(2),
-                            width: 25,height: 25,
+                            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.006),
+                            width: MediaQuery.of(context).size.width*0.069,height: MediaQuery.of(context).size.width*0.069,
                             decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xFF292D4E),),
-                            child: Icon(Icons.attach_money_sharp,size: 20 ,color:Colors.red)),
+                            child: Icon(Icons.attach_money_sharp,size: MediaQuery.of(context).size.width*0.05 ,color:Colors.red)),
                           const SizedBox(width: 10),
                           Text("Entrer le budget du mois",
                               style: GoogleFonts.roboto(
@@ -212,8 +211,8 @@ class _MainRoutesState extends State<MainRoutes> {
                       child: Row(
                         children: [
                            Container(
-                             padding: const EdgeInsets.all(2),
-                            width: 25,height: 25,
+                             padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.006),
+                            width: MediaQuery.of(context).size.width*0.069,height: MediaQuery.of(context).size.width*0.069,
                             decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Color(0xFF292D4E),),
                             child: Icon(Icons.monetization_on_outlined,size: 20,color:Colors.orange)),
                             const SizedBox(width: 10),

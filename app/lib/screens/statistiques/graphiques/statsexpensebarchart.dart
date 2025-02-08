@@ -47,7 +47,7 @@ class BarChartExpenseState extends State<BarChartExpense> {
                   children: <Widget>[
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.0222),
                         child: BarChart(
                           mainBarData(),
                           // ignore: deprecated_member_use
@@ -55,8 +55,8 @@ class BarChartExpenseState extends State<BarChartExpense> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 12,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width*0.0333,
                     ),
                   ],
                 ),
@@ -215,7 +215,7 @@ class BarChartExpenseState extends State<BarChartExpense> {
           sideTitles: SideTitles(
             showTitles: false,
             getTitlesWidget: getTitles,
-            reservedSize: 38,
+            reservedSize: MediaQuery.of(context).size.width*0.1055,
           ),
         ),
         leftTitles: const AxisTitles(

@@ -58,7 +58,7 @@ class _SingleBudgetState extends State<SingleBudget> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
             child: Container(
               alignment: Alignment.centerLeft,
               child: Text("Vos differentes dépenses sur ce budget du mois",
@@ -94,10 +94,10 @@ class _SingleBudgetState extends State<SingleBudget> {
 
   Widget _detailExpenses(BuildContext context, item, isDark ,containerDark) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal:10,vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width*0.0277,vertical: MediaQuery.of(context).size.width*0.0055),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-        height: 130,
+        padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width*0.0555, horizontal: MediaQuery.of(context).size.width*0.04),
+        height: MediaQuery.of(context).size.width*0.36,
         decoration: BoxDecoration(
             color: isDark ? containerDark :const Color(0xFF292D4E),
             borderRadius: BorderRadius.circular(10)),

@@ -19,14 +19,14 @@ class MyCarousel extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 color: const Color(0xFF292D4E),
-                borderRadius: BorderRadius.circular(20)),
+                borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*0.0555)),
             child: Padding(
               padding: const EdgeInsets.only(left: 0),
               child: ListView(
                   physics:const NeverScrollableScrollPhysics(),
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only( left: 25),
+                      padding: EdgeInsets.only( left: MediaQuery.of(context).size.width*0.065),
                       child: Text("Hebdomadaire",
                           style: GoogleFonts.roboto(
                               fontSize: MediaQuery.of(context).size.width*0.04,
@@ -34,7 +34,7 @@ class MyCarousel extends StatelessWidget {
                               fontWeight: FontWeight.w300)),
                     ),
                     Padding(
-                        padding: const EdgeInsets.only(top: 5, left: 25),
+                        padding: EdgeInsets.only(top: MediaQuery.of(context).size.width*0.013, left: MediaQuery.of(context).size.width*0.065),
                         child: Consumer<StatisticsProvider>(
                             builder: (context, provider, child) {
                           return StreamBuilder<String?>(
@@ -49,9 +49,9 @@ class MyCarousel extends StatelessWidget {
                               });
                         })),
                     Padding(
-                      padding: const EdgeInsets.only(top: 5,bottom: 16),
+                      padding: EdgeInsets.only(top: MediaQuery.of(context).size.width*0.013,bottom: MediaQuery.of(context).size.width*0.0444),
                       child: SizedBox(
-                        height: 120,
+                        height: MediaQuery.of(context).size.width*0.333,
                         child: BarChartExpense(),
                       ),
                     ),
@@ -60,7 +60,7 @@ class MyCarousel extends StatelessWidget {
           );
         },
         options: CarouselOptions(
-            height: 220, viewportFraction: 0.9, 
+            height: MediaQuery.of(context).size.width*0.6111, viewportFraction: 0.9, 
             enlargeCenterPage: true,
             enlargeFactor: 0.3,
             enableInfiniteScroll: false,

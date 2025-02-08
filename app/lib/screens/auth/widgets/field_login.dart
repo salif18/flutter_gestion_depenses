@@ -89,10 +89,10 @@ class _MyFieldFormsState extends State<MyFieldForms> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.05, vertical: MediaQuery.of(context).size.width*0.05),
         decoration: BoxDecoration(
           color: Colors.grey[300],
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*0.05),
         ),
         child: Form(
           key: _formKey,
@@ -115,7 +115,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
 
   Widget _text(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.04),
       child: Text(
         "Renseignez les informations demandées pour vous connecter à votre compte",
         style: GoogleFonts.aBeeZee(
@@ -128,7 +128,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
 
   Widget _formFieldContact(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding:  EdgeInsets.all(MediaQuery.of(context).size.width*0.04),
       child: TextFormField(
         controller: contacts,
         validator: (value) {
@@ -147,7 +147,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
             color: const Color.fromARGB(255, 38, 38, 85),
           ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*0.03),
             borderSide: BorderSide.none,
           ),
           prefixIcon: const Icon(
@@ -162,7 +162,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
 
   Widget _countryDropdown(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding:  EdgeInsets.all(MediaQuery.of(context).size.width*0.04),
       child: DropdownButtonFormField(
         hint: Text("(+ Indicatif)",
             style:
@@ -214,7 +214,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
 
   Widget _formFieldPassword(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.04),
       child: TextFormField(
         keyboardType: TextInputType.visiblePassword,
         obscureText: visibilityPassword,
@@ -235,7 +235,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
             color: const Color.fromARGB(255, 38, 38, 85),
           ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*0.03),
             borderSide: BorderSide.none,
           ),
           prefixIcon: const Icon(
@@ -262,7 +262,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
 
   Widget _forgetPassword(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10),
+      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.02),
       child: Row(children: [
         TextButton(
             onPressed: () {
@@ -277,11 +277,11 @@ class _MyFieldFormsState extends State<MyFieldForms> {
 
   Widget _button(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.04, vertical: MediaQuery.of(context).size.width*0.02),
       child: ElevatedButton(
         onPressed: () => sendToServer(context),
         style: ElevatedButton.styleFrom(
-          maximumSize: const Size(400, 50),
+          maximumSize:  Size(MediaQuery.of(context).size.width*0.4, MediaQuery.of(context).size.width*0.12),
           backgroundColor: const Color.fromARGB(255, 111, 116, 161),
         ),
         child: Center(
@@ -356,7 +356,7 @@ class _MyFieldFormsState extends State<MyFieldForms> {
 
   Widget _asKACount(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.02),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

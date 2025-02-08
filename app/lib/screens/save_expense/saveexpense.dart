@@ -166,8 +166,8 @@ class _SaveExpensesState extends State<SaveExpenses> {
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Container(
-                height: 35,
-                width: 35,
+                height: MediaQuery.of(context).size.width *0.097,
+                width: MediaQuery.of(context).size.width*0.097,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: isDark ? backgroundDark : Colors.grey[100]
@@ -178,17 +178,17 @@ class _SaveExpensesState extends State<SaveExpenses> {
                     color: Colors.grey[400]))),
       ),
       body: Container(
-        padding: const EdgeInsets.all(8),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
         decoration: BoxDecoration(
           color: isDark ? containerBg : Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width *0.0555),
         ),
         child: SingleChildScrollView(
           child: Column(
             children: [
               _text(context, isDark, textDark),
               Padding(
-                padding: const EdgeInsets.all(8),
+                padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -197,7 +197,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
                       _textSelectCategorie(context),
                       _textDescritptionForm(context),
                       _dateForm(context),
-                      const SizedBox(height: 20),
+                      SizedBox(height: MediaQuery.of(context).size.width * 0.0555),
                       _buttonSend(context)
                     ],
                   ),
@@ -212,12 +212,12 @@ class _SaveExpensesState extends State<SaveExpenses> {
 
   Widget _text(BuildContext context, isDark, textDark) {
     return Padding(
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.0277),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.0222),
               child: Text("Nouvelles dépenses",
                   style: GoogleFonts.roboto(
                       fontSize: MediaQuery.of(context).size.width * 0.04,
@@ -225,7 +225,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
                       fontWeight: FontWeight.w500)),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.0222),
               child: Text(
                   "Enregistrer toutes vos dépenses effectuees de la journee",
                   style: GoogleFonts.aBeeZee(
@@ -270,7 +270,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
 
   Widget _textSelectCategorie(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.0222),
       child: DropdownButtonFormField(
           hint: Text("Choisir une categories",
               style: GoogleFonts.roboto(
@@ -315,7 +315,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
 
   Widget _textDescritptionForm(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.0277),
       child: TextFormField(
         controller: description,
         validator: (value) {
@@ -351,7 +351,7 @@ class _SaveExpensesState extends State<SaveExpenses> {
       child: DateTimeFormField(
         decoration: InputDecoration(
           hintText: 'Ajouter une date',
-          hintStyle: GoogleFonts.roboto(fontSize: 20),
+          hintStyle: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width * 0.0277),
           fillColor: Colors.grey[100],
           filled: true,
           border: OutlineInputBorder(
@@ -374,14 +374,14 @@ class _SaveExpensesState extends State<SaveExpenses> {
 
   Widget _buttonSend(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.0277),
       child: Container(
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.0277),
         width: double.infinity,
         child: ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF292D4E),
-            minimumSize: const Size(double.infinity, 60),
+            minimumSize: Size(double.infinity, MediaQuery.of(context).size.width * 0.13),
           ),
           onPressed: postToServerData,
           icon: Icon(Icons.save_outlined,

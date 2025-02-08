@@ -14,14 +14,14 @@ class AnalyseGeneral extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.0277),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: 275,
-            width:  MediaQuery.of(context).size.width*0.45,
-            padding: const EdgeInsets.all(8),
+            height: MediaQuery.of(context).size.width * 0.69,
+            width:  MediaQuery.of(context).size.width*0.47,
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.0222),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: const Color(0xFF292D4E),
@@ -39,7 +39,7 @@ class AnalyseGeneral extends StatelessWidget {
                       return Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8),
+                            padding: EdgeInsets.all(MediaQuery.of(context).size.width *0.0222),
                             child: CircularPercentIndicator(
                               animation: true,
                               animationDuration: 270,
@@ -60,7 +60,7 @@ class AnalyseGeneral extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(7),
+                            padding:  EdgeInsets.all(MediaQuery.of(context).size.width * 0.015),
                             child: Text(
                               "De Consommation du budget",
                               style: GoogleFonts.roboto(
@@ -72,7 +72,7 @@ class AnalyseGeneral extends StatelessWidget {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.all(8),
+                              padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
                               child: Row(
                                 children: [
                                   Text(
@@ -94,7 +94,7 @@ class AnalyseGeneral extends StatelessWidget {
                       return Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8),
+                            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
                             child: CircularPercentIndicator(
                               animation: true,
                               animationDuration: 270,
@@ -115,7 +115,7 @@ class AnalyseGeneral extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(7),
+                            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.015),
                             child: Text(
                               "De Consommation du budget",
                               style: GoogleFonts.roboto(
@@ -127,7 +127,7 @@ class AnalyseGeneral extends StatelessWidget {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.all(8),
+                              padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
                               child: Row(
                                 children: [
                                   Text(
@@ -151,13 +151,13 @@ class AnalyseGeneral extends StatelessWidget {
               },
             ),
           ),
-          const SizedBox(width: 20),
+          SizedBox(width: MediaQuery.of(context).size.width*0.0277),
           Column(
             children: [
               Container(
-                height: 130.5,
+                height: MediaQuery.of(context).size.width*0.321,
                 width:  MediaQuery.of(context).size.width*0.4,
-                padding: const EdgeInsets.all(8),
+                padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: const Color.fromARGB(255, 224, 41, 28),
@@ -180,7 +180,7 @@ class AnalyseGeneral extends StatelessWidget {
                             children: [
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(left: 8, bottom: 2),
+                                    EdgeInsets.only(left: MediaQuery.of(context).size.width*0.0222, bottom: MediaQuery.of(context).size.width*0.0055),
                                 child: Text(
                                   "Le plus investis",
                                   style: GoogleFonts.roboto(
@@ -194,12 +194,12 @@ class AnalyseGeneral extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 8, bottom: 2),
+                                    padding:  EdgeInsets.only(
+                                        top: MediaQuery.of(context).size.width*0.0222, bottom: MediaQuery.of(context).size.width*0.0055),
                                     child: regeneredIcon(context,
                                         category?['name_categories']),
                                   ),
-                                  const SizedBox(width: 5),
+                                  SizedBox(width: MediaQuery.of(context).size.width*0.0138),
                                   Expanded(
                                     child: Text(
                                       "${category?['name_categories'] ?? ""}",
@@ -213,7 +213,7 @@ class AnalyseGeneral extends StatelessWidget {
                                 ],
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 8),
+                                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.0222),
                                 child: Row(
                                   children: [
                                     Expanded(
@@ -242,11 +242,11 @@ class AnalyseGeneral extends StatelessWidget {
                   },
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: MediaQuery.of(context).size.width*0.0277),
               Container(
-                height: 130.5,
+                height: MediaQuery.of(context).size.width*0.321,
                 width:  MediaQuery.of(context).size.width*0.4,
-                padding: const EdgeInsets.all(8),
+                padding:EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: const Color(0xFF292D4E),
@@ -267,7 +267,7 @@ class AnalyseGeneral extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(top: 8, bottom: 2),
+                                padding: EdgeInsets.only(top: MediaQuery.of(context).size.width*0.0222, bottom: MediaQuery.of(context).size.width*0.0055),
                                 child: Icon(
                                   Icons.token,
                                   size:  MediaQuery.of(context).size.width*0.06,
@@ -276,7 +276,7 @@ class AnalyseGeneral extends StatelessWidget {
                               ),
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(left: 8, bottom: 2),
+                                  EdgeInsets.only(left: MediaQuery.of(context).size.width*0.0222, bottom: MediaQuery.of(context).size.width*0.0055),
                                 child: Text(
                                   "Epargnes",
                                   style: GoogleFonts.roboto(
@@ -287,7 +287,7 @@ class AnalyseGeneral extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 8),
+                                padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.0222),
                                 child: Row(
                                   children: [
                                     Text(

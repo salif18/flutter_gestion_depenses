@@ -64,9 +64,9 @@ class _HomeState extends State<Home> {
               delegate: SliverChildListDelegate(
                 [
                   Padding(
-                    padding: EdgeInsets.all(8),
+                    padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
                     child: Container(
-                      padding:const EdgeInsets.only(left:20,right: 20,top: 50),
+                      padding:EdgeInsets.only(left:MediaQuery.of(context).size.width*0.0555,right: MediaQuery.of(context).size.width*0.0555,top: MediaQuery.of(context).size.width*0.1399),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -106,7 +106,7 @@ class _HomeState extends State<Home> {
                                                 const Budgets()));
                                   },
                                   icon:Container(
-                                    width: 40,height: 40,
+                                    width: MediaQuery.of(context).size.width*0.12,height: MediaQuery.of(context).size.width*0.12,
                                     decoration: BoxDecoration(
                                       color: const Color(0xFF292D4E),
                                       borderRadius: BorderRadius.circular(5)),
@@ -127,7 +127,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: MediaQuery.of(context).size.width*0.0555),
                   const MyCarousel(),
                 ],
               ),
@@ -137,25 +137,25 @@ class _HomeState extends State<Home> {
                 length: 2,
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 40,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width*0.12,
                     ),
                     Container(
-                      padding: const EdgeInsets.only(top: 20),
+                      padding: EdgeInsets.only(top: MediaQuery.of(context).size.width*0.0555),
                       decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(25),
-                            topRight: Radius.circular(25)),
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(MediaQuery.of(context).size.width*0.0694),
+                            topRight: Radius.circular(MediaQuery.of(context).size.width*0.0694)),
                         color:isDark ? backgroundDark : const Color(0xfff0f1f5),                          
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        padding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.0555, right: MediaQuery.of(context).size.width*0.0555),
                         child: Material(
                           color: const Color(0xFFD5CEDD),       
-                          shape: const RoundedRectangleBorder(                      
+                          shape: RoundedRectangleBorder(                      
                               borderRadius: BorderRadius.horizontal(
-                                  left: Radius.circular(2),
-                                  right: Radius.circular(2))),
+                                  left: Radius.circular(MediaQuery.of(context).size.width*0.006),
+                                  right: Radius.circular(MediaQuery.of(context).size.width*0.006))),
                           child: TabBar(                            
                             indicator: BoxDecoration(
                                 color: const Color(0xFF292D4E),

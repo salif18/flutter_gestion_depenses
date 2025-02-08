@@ -76,6 +76,10 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
     super.dispose();
   }
 
+double responsiveValue(BuildContext context, double baseValue) {
+  return MediaQuery.of(context).size.width * (baseValue / 360);
+}
+
   @override
   Widget build(BuildContext context) {
     ThemeProvider provider = Provider.of<ThemeProvider>(context);
@@ -90,15 +94,15 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
                   child: Container(
-                      padding: const EdgeInsets.all(10),
+                      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
                       child: Row(
                         children: [
                           Icon(Icons.calendar_month_rounded,
                               color: Colors.red,
                               size: MediaQuery.of(context).size.width * 0.06),
-                          const SizedBox(width: 10),
+                          SizedBox(width: MediaQuery.of(context).size.width*0.0277),
                           Text(
                             "$month",
                             style: GoogleFonts.roboto(
@@ -111,9 +115,9 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                       )),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(4.0),
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0111),
                   child: Container(
-                      padding: const EdgeInsets.all(10),
+                      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
                       child: Row(
                         children: [
                           Text(
@@ -124,7 +128,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                                     MediaQuery.of(context).size.width * 0.04,
                                 fontWeight: FontWeight.w600),
                           ),
-                          const SizedBox(width: 5),
+                          SizedBox(width: MediaQuery.of(context).size.width*0.01388),
                           Text(
                             "$totalMonth XOF",
                             style: GoogleFonts.roboto(
@@ -133,7 +137,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                                     MediaQuery.of(context).size.width * 0.04,
                                 fontWeight: FontWeight.w600),
                           ),
-                          const SizedBox(width: 10),
+                          SizedBox(width: MediaQuery.of(context).size.width*0.0277),
                           Icon(Icons.monetization_on_rounded,
                               color: Colors.amber,
                               size: MediaQuery.of(context).size.width * 0.06),
@@ -160,7 +164,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                     if (expenseStream.isEmpty) {
                       return Container(
                         width: MediaQuery.of(context).size.width,
-                        padding: const EdgeInsets.all(15),
+                        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0416),
                         child: Column(
                           children: [
                             Text(
@@ -171,7 +175,7 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                                   fontWeight: FontWeight.w300,
                                   color: isDark ? textDark : null),
                             ),
-                            const SizedBox(height: 20),
+                            SizedBox(height: MediaQuery.of(context).size.width*0.0555),
                             ElevatedButton(
                               onPressed: () => _showAddExpenses(context),
                               child: Icon(Icons.add,
@@ -206,10 +210,10 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
       child: Container(
-        padding: const EdgeInsets.all(5),
-        height: 50,
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0083),
+        height: MediaQuery.of(context).size.width*0.1388,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -220,13 +224,13 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                     height: 40,
                     padding: const EdgeInsets.all(2),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*0.0277),
                       color: const Color(0xFF292D4E),
                     ),
                     child: regeneredIcon(context,
                         category?["name_categories".toLowerCase()] ?? "")),
-                const SizedBox(
-                  width: 10,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width *0.0277,
                 ),
                 Text(category?["name_categories"] ?? "",
                     style: GoogleFonts.roboto(
@@ -242,8 +246,8 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
                         color: isDark ? Colors.green : Colors.black,
                         fontSize: MediaQuery.of(context).size.width * 0.04,
                         fontWeight: FontWeight.w800)),
-                const SizedBox(
-                  width: 10,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width*0.0277,
                 ),
                 Icon(Icons.monetization_on_sharp,
                     size: MediaQuery.of(context).size.width * 0.06,
@@ -263,13 +267,13 @@ class _MyMonthDepenseState extends State<MyMonthDepense> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.0555),
             height: MediaQuery.of(context).size.height * 0.8,
             decoration: BoxDecoration(
               color: Colors.grey[100],
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(MediaQuery.of(context).size.width *0.0555),
+                topRight: Radius.circular(MediaQuery.of(context).size.width * 0.0555),
               ),
             ),
             child: const SaveExpenses());

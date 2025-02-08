@@ -15,7 +15,7 @@ class _MensuelsState extends State<Mensuels> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 110,
+      height: MediaQuery.of(context).size.width*0.27,
       // padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Consumer<StatisticsProvider>(
         builder: (context, provider, child) {
@@ -49,7 +49,7 @@ class _MensuelsState extends State<Mensuels> {
 
   Widget _aucunsDonnees(BuildContext context) {
     return Container(
-      height: 50,
+      height: MediaQuery.of(context).size.width * 0.138,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20), color: Colors.grey[100]),
       child: Center(
@@ -60,8 +60,8 @@ class _MensuelsState extends State<Mensuels> {
 
   Widget _cardMonthStats(BuildContext context, item) {
     return Container(
-      height:  100,
-      margin: const EdgeInsets.symmetric(horizontal: 5),
+      height:  MediaQuery.of(context).size.width*0.277,
+      margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.013),
       width:  MediaQuery.of(context).size.width*0.47,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       child: Card(
@@ -74,7 +74,7 @@ class _MensuelsState extends State<Mensuels> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
                   child: formatDate(item.month ?? ''),
                 ),
                 Padding(
@@ -85,7 +85,7 @@ class _MensuelsState extends State<Mensuels> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

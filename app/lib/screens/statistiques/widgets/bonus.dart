@@ -13,21 +13,21 @@ class BonusDay extends StatelessWidget {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.02),
       child: Row(children: [
         Padding(
-          padding: const EdgeInsets.all(8),
+          padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
           child: Text("Analyse votre ",
               style: GoogleFonts.roboto(
                   fontSize:  MediaQuery.of(context).size.width*0.05,
                   fontWeight: FontWeight.w500,
                   color:isDark ? textDark : null,)),
         ),
-        const SizedBox(width: 50),
+        SizedBox(width: MediaQuery.of(context).size.width*0.138),
         Padding(
-          padding: const EdgeInsets.all(8),
+          padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
           child: Container(
-            padding: const EdgeInsets.all(8),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
             // height: 30,
             decoration: BoxDecoration(
               color: const Color(0xFF292D4E),

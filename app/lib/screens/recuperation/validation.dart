@@ -84,7 +84,7 @@ class _ValidationPasswordState extends State<ValidationPassword> {
                 color: isDark ? textDark : null, size: 24)),
       ),
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -95,7 +95,7 @@ class _ValidationPasswordState extends State<ValidationPassword> {
                 _formConfirmPassword(context),
                 _secondText(context, isDark, textDark),
                 _codes4Champs(context),
-                const SizedBox(height: 100),
+                SizedBox(height: MediaQuery.of(context).size.width*0.97),
                 _sendButton(context)
               ],
             ),
@@ -107,12 +107,12 @@ class _ValidationPasswordState extends State<ValidationPassword> {
 
   Widget _text(BuildContext context, isDark, textDark) {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
             child: Text("Validation le mot de passe",
                 style: GoogleFonts.roboto(
                     color: isDark ? textDark : null,
@@ -135,7 +135,7 @@ class _ValidationPasswordState extends State<ValidationPassword> {
 
   Widget _formNewPassword(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
       child: TextFormField(
         controller: _newPassword,
         validator: (value) {
@@ -160,7 +160,7 @@ class _ValidationPasswordState extends State<ValidationPassword> {
 
   Widget _formConfirmPassword(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
       child: TextFormField(
         controller: _confirmPassword,
         validator: (value) {
@@ -185,9 +185,9 @@ class _ValidationPasswordState extends State<ValidationPassword> {
 
   Widget _secondText(BuildContext context, isDark, textDark) {
     return Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
         child: Container(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
             child: Text("Entrez les 4 chiffres envoyés sur votre e-mail",
                 style: GoogleFonts.roboto(
                     color: isDark ? textDark : null,
@@ -197,9 +197,9 @@ class _ValidationPasswordState extends State<ValidationPassword> {
 
   Widget _codes4Champs(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
       child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
           child: PinCodeTextField(
             appContext: context,
             length: 4,
@@ -229,7 +229,7 @@ class _ValidationPasswordState extends State<ValidationPassword> {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF292D4E),
-            minimumSize: const Size(350, 50)),
+            minimumSize: Size(MediaQuery.of(context).size.width*0.97, MediaQuery.of(context).size.width*0.138)),
         onPressed: () => _send(context),
         child: Text("Envoyer",
             style: GoogleFonts.aBeeZee(

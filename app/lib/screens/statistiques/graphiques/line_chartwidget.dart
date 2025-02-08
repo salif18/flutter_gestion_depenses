@@ -23,11 +23,11 @@ class LineChartWidget extends StatelessWidget {
             .toList() ??
         [];
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding:EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width*0.0555, vertical: MediaQuery.of(context).size.width*0.03),
       child: AspectRatio(
         aspectRatio: 2,
         child: Container(
-          padding: const EdgeInsets.only(right: 25),
+          padding: EdgeInsets.only(right: MediaQuery.of(context).size.width*0.0555),
           decoration: BoxDecoration(
               color: const Color(0xFF292D4E),
               borderRadius: BorderRadius.circular(20)),
@@ -76,7 +76,7 @@ class LineChartWidget extends StatelessWidget {
       enabled: true,
       touchTooltipData: LineTouchTooltipData(
         // tooltipBgColor: Colors.transparent,
-        tooltipPadding: const EdgeInsets.all(5),
+        tooltipPadding: EdgeInsets.all(5),
         getTooltipItems: (touchedSpots) {
           return touchedSpots.map((LineBarSpot touchedSpot) {
             String month;

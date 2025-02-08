@@ -75,10 +75,10 @@ class _ResetTokenState extends State<ResetToken> {
             icon:Icon(Icons.arrow_back_ios_new_rounded,color:isDark ? textDark :null, size: 24)),
       ),
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
         child: SingleChildScrollView(
           child: Container(
-            padding: const EdgeInsets.all(10),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
             child: Form(
               key: _formKey,
               child: Column(
@@ -86,7 +86,7 @@ class _ResetTokenState extends State<ResetToken> {
                   _text(context,isDark, textDark),
                   _formNumberField(context),
                   _formEmailField(context),
-                  const SizedBox(height: 100),
+                  SizedBox(height: MediaQuery.of(context).size.width*0.13),
                   _sendButton(context)
                 ],
               ),
@@ -99,18 +99,18 @@ class _ResetTokenState extends State<ResetToken> {
 
   Widget _text(BuildContext context, isDark , textDark) {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
             child: Text("Réinitialiser le mot de passe",
                 style: GoogleFonts.roboto(
                   color:isDark ? textDark :null,
                     fontSize:  MediaQuery.of(context).size.width*0.05, fontWeight: FontWeight.w600)),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
             child: Text(
                 "Veuillez entrer les bonnes informations pour pouvoir nous aider à réinitialiser votre mot de passe",
                 style: GoogleFonts.roboto(
@@ -124,7 +124,7 @@ class _ResetTokenState extends State<ResetToken> {
 
   Widget _formNumberField(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
       child: TextFormField(
         controller: _numero,
         validator: (value) {
@@ -149,7 +149,7 @@ class _ResetTokenState extends State<ResetToken> {
 
   Widget _formEmailField(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
       child: TextFormField(
         controller: _email,
         validator: (value) {
@@ -176,7 +176,7 @@ class _ResetTokenState extends State<ResetToken> {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF292D4E),
-            minimumSize: const Size(350, 50)),
+            minimumSize: Size(MediaQuery.of(context).size.width*0.97, MediaQuery.of(context).size.width*0.13)),
         onPressed: () => _send(context),
         child: Text("Envoyer",
             style: GoogleFonts.aBeeZee(

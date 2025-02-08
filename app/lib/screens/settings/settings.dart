@@ -23,7 +23,7 @@ class _SettingsState extends State<Settings> {
       backgroundColor: isDark ? backgroundDark : Colors.grey[200],
       appBar: const SettingsAppBar(),
       body: Container(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -39,7 +39,7 @@ class _SettingsState extends State<Settings> {
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: MediaQuery.of(context).size.width*0.0555),
               Container(
                 decoration: BoxDecoration(
                     color: isDark ? containerDark : Colors.white,
@@ -62,10 +62,10 @@ class _SettingsState extends State<Settings> {
   Widget _notificationReglage(BuildContext context, ThemeProvider provider) {
     bool isDark = provider.isDark;
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(),
-      height: 100,
+      height: MediaQuery.of(context).size.width*0.277,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -97,10 +97,10 @@ class _SettingsState extends State<Settings> {
   Widget _themeReglage(BuildContext context, provider) {
     bool isDark = provider.isDark;
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding:  EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(),
-      height: 100,
+      height: MediaQuery.of(context).size.width*0.277,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -145,10 +145,10 @@ class _SettingsState extends State<Settings> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(),
-      height: 100,
+      height: MediaQuery.of(context).size.width*0.277,
       child: InkWell(
         onTap: () => _showUpdatePassword(context),
         child: Row(
@@ -186,10 +186,10 @@ class _SettingsState extends State<Settings> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(),
-      height: 100,
+      height: MediaQuery.of(context).size.width*0.277,
       child: InkWell(
         onTap: null,
         child: Row(
@@ -232,7 +232,7 @@ class _SettingsState extends State<Settings> {
 
           return Container(
               height: MediaQuery.of(context).size.height * 0.9,
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
               decoration: BoxDecoration(
                 color: isDark ? Colors.black : null,
                 borderRadius: const BorderRadius.only(

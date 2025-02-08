@@ -88,7 +88,7 @@ class _BudgetsState extends State<Budgets> {
         child: Column(
           children: [
             Padding(
-                padding: const EdgeInsets.all(20),
+                padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
                 child: Container(
                   alignment: Alignment.centerLeft,
                   child: Text("Archives de vos Budgets",
@@ -140,8 +140,8 @@ class _BudgetsState extends State<Budgets> {
           child:
               Icon(Icons.add, size: MediaQuery.of(context).size.width * 0.05),
         ),
-        const SizedBox(
-          height: 40,
+        SizedBox(
+          height: MediaQuery.of(context).size.width*0.111,
         )
       ]),
     );
@@ -150,7 +150,7 @@ class _BudgetsState extends State<Budgets> {
 //card widget
   Widget _cardBudget(BuildContext context, item, isDark, conteinerBg) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
       child: InkWell(
         onTap: () {
           Navigator.push(
@@ -159,7 +159,7 @@ class _BudgetsState extends State<Budgets> {
                   builder: (context) => SingleBudget(itemPassToProps: item)));
         },
         child: Container(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
           decoration: BoxDecoration(
               color: isDark ? conteinerBg : const Color(0xFF292D4E),
               borderRadius: BorderRadius.circular(15)),
@@ -169,10 +169,10 @@ class _BudgetsState extends State<Budgets> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                    padding: const EdgeInsets.all(10),
+                    padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
                     child: formatDate(item?.budgetDate ?? "")),
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.022),
                   child: Text("${item?.budgetAmount ?? 0} Fcfa",
                       style: GoogleFonts.roboto(
                           fontSize: MediaQuery.of(context).size.width * 0.04,
@@ -196,7 +196,7 @@ class _BudgetsState extends State<Budgets> {
                   topLeft: Radius.circular(25), topRight: Radius.circular(25)),
               color: isDark ? background : Colors.grey[200],
             ),
-            padding: const EdgeInsets.all(20),
+            padding:  EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
             height: MediaQuery.of(context).size.height * 0.6,
             child: const AddBudget(),
           );

@@ -14,7 +14,7 @@ class _LoginState extends State<MyLogin> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.05),
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
@@ -25,12 +25,12 @@ class _LoginState extends State<MyLogin> {
         end: Alignment.bottomCenter
         ),
       ),
-        child: const SingleChildScrollView(
+        child: SingleChildScrollView(
             child: Column(    
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                    MessageTopWidget(),
-                   const SizedBox(height: 16),
+                   SizedBox(height: MediaQuery.of(context).size.width*0.05),
                    MyFieldForms()
             ],
           ),

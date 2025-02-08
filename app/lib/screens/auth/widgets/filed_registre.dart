@@ -87,10 +87,10 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.04),
         decoration: BoxDecoration(
           color: Colors.grey[300],
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*0.03),
         ),
         child: Form(
           key: _formKey,
@@ -117,7 +117,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
 
   Widget _text(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.04),
       child: Text(
         "Renseignez les informations demandées ",
         style: GoogleFonts.aBeeZee(
@@ -130,7 +130,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
 
   Widget _formPseudoField(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.03),
       child: TextFormField(
         controller: name,
         validator: (value) {
@@ -150,7 +150,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
             color: const Color.fromARGB(255, 38, 38, 85),
           ),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*0.03),
               borderSide: BorderSide.none),
           prefixIcon: Icon(Icons.person_2_outlined,
               color: Color.fromARGB(255, 38, 38, 85), size:MediaQuery.of(context).size.width*0.06),
@@ -216,7 +216,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
 
   Widget _formNumberField(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.03),
       child: TextFormField(
         controller: numero,
         validator: (value) {
@@ -236,7 +236,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
             color: const Color.fromARGB(255, 38, 38, 85),
           ),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*0.03),
               borderSide: BorderSide.none),
           prefixIcon: Icon(Icons.phone_android_rounded,
               color: Color.fromARGB(255, 38, 38, 85), size: MediaQuery.of(context).size.width*0.06),
@@ -247,7 +247,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
 
   Widget _formEmailField(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.03),
       child: TextFormField(
         controller: email,
         validator: (value) {
@@ -267,7 +267,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
             color: const Color.fromARGB(255, 38, 38, 85),
           ),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*0.03),
               borderSide: BorderSide.none),
           prefixIcon: Icon(Icons.mail_outline,
               color: Color.fromARGB(255, 38, 38, 85), size: MediaQuery.of(context).size.width*0.06),
@@ -278,7 +278,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
 
   Widget _formPasswordField(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.03),
         child: TextFormField(
           controller: password,
           validator: (value) {
@@ -299,7 +299,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
               color: const Color.fromARGB(255, 38, 38, 85),
             ),
             border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width*0.03),
                 borderSide: BorderSide.none),
             prefixIcon: Icon(Icons.key,
                 color: Color.fromARGB(255, 38, 38, 85), size: MediaQuery.of(context).size.width*0.06),
@@ -321,12 +321,12 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
 
   Widget _button(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.02),
       child: ElevatedButton(
           onPressed: postToServerDataRegistre,
           style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.all(10),
-              minimumSize: const Size(400, 50),
+              padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.02),
+              minimumSize:  Size(MediaQuery.of(context).size.width*4, MediaQuery.of(context).size.width*0.12),
               backgroundColor: const Color.fromARGB(255, 111, 116, 161)),
           child: Text("Créer",
               style: GoogleFonts.roboto(
@@ -394,7 +394,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
 
   Widget _askACount(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding:EdgeInsets.all(MediaQuery.of(context).size.width*0.02),
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text("Déjà un de compte ? -", style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04,)),
         TextButton(

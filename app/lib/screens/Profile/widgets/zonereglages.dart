@@ -74,22 +74,22 @@ class _MyReglagesState extends State<MyReglages> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Container(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding:  EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
             child: InkWell(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>const EditUser()));
               },
               child: Container(
-                padding: const EdgeInsets.all(10),
+                padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
                 child: Column(
                   children: [
                     Row(
                       children: [
                       Icon(Icons.edit, size:  MediaQuery.of(context).size.width*0.05,color:isDark ? textDark : null,),
-                        const SizedBox(width: 20),
+                        SizedBox(width: MediaQuery.of(context).size.width*0.0555),
                         Text(
                           "Modifier votre compte",
                           style: GoogleFonts.roboto(
@@ -110,17 +110,17 @@ class _MyReglagesState extends State<MyReglages> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
             child: InkWell(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const Settings()));
               },
               child: Container(
-                padding: const EdgeInsets.all(10),
+                padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
                 child: Row(
                   children: [
                     Icon(Icons.settings_outlined, size:  MediaQuery.of(context).size.width*0.05,color:isDark ? textDark : null,),
-                    const SizedBox(width: 20),
+                    SizedBox(width: MediaQuery.of(context).size.width*0.0555),
                     Text(
                       "Réglages",
                       style: GoogleFonts.roboto(
@@ -138,9 +138,9 @@ class _MyReglagesState extends State<MyReglages> {
               ),
             ),
           ),
-          const SizedBox(height: 50),
+          SizedBox(height: 50),
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
             child: InkWell(
               onTap: (){
                  final provider = Provider.of<AuthProvider>(context, listen: false);
@@ -151,13 +151,13 @@ class _MyReglagesState extends State<MyReglages> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.grey[300]),
-                  padding: const EdgeInsets.all(10),
-                  width: 280,
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
+                  width: MediaQuery.of(context).size.width*0.777,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       //const Icon(Icons.logout_rounded, size:30),
-                      const SizedBox(width: 20),
+                      SizedBox(width: MediaQuery.of(context).size.width*0.0555),
                       Text(
                         "Se déconnecter",
                         style: GoogleFonts.roboto(
@@ -169,15 +169,15 @@ class _MyReglagesState extends State<MyReglages> {
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: MediaQuery.of(context).size.width*0.0555),
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
             child: InkWell(
               onTap: () {
                 _showConfirmDelete(context);
               },
               child: Container(
-                padding: const EdgeInsets.all(10),
+                padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
                 child: Center(
                   child: Text(
                     "Supprimer mon compte",
@@ -199,20 +199,20 @@ class _MyReglagesState extends State<MyReglages> {
           return AlertDialog(
             title: const Center(child: Text("Avertissement")),
             contentPadding:
-                const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width*0.0555, horizontal: MediaQuery.of(context).size.width*0.0555),
             content: Column(
               mainAxisSize: MainAxisSize
                   .min, //pour que l'espace column s'adapte a la taille du contenu
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
                   child: Text(
                       "Etes-vous sur de vouloir supprimer votre compte? cette action est irreversible.",
                       style:
                           GoogleFonts.roboto(fontSize:  MediaQuery.of(context).size.width*0.04, color: Colors.grey)),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

@@ -25,15 +25,15 @@ class MyProfilPictureInfos extends StatelessWidget {
             } else if (snapshot.hasData) {
               final ModelUser? profil = snapshot.data;
               return SizedBox(
-                height: 250,
+                height: MediaQuery.of(context).size.width*0.694,
                 child: Center(
                   child: Column(
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.only(top: 40),
+                       Padding(
+                        padding: EdgeInsets.only(top: MediaQuery.of(context).size.width*0.111),
                         child: SizedBox(
-                          height: 100,
-                          width: 100,
+                          height: MediaQuery.of(context).size.width*0.277,
+                          width: MediaQuery.of(context).size.width*0.277,
                           child: CircleAvatar(
                             child: Icon(
                               Icons.person_2_outlined,
@@ -43,7 +43,7 @@ class MyProfilPictureInfos extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(20),
+                        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
                         child: Column(
                           children: [
                             Text(profil?.name ?? "",

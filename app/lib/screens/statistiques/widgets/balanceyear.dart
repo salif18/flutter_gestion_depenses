@@ -23,8 +23,8 @@ class _MyYearBalanceState extends State<MyYearBalance> {
       padding: EdgeInsets.only(
         top: MediaQuery.of(context).padding.top * 1.2),
       child: Container(
-        padding: const EdgeInsets.only(
-          left:20,top:20
+        padding: EdgeInsets.only(
+          left:MediaQuery.of(context).size.width * 0.0555,top:MediaQuery.of(context).size.width * 0.0555
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -33,7 +33,7 @@ class _MyYearBalanceState extends State<MyYearBalance> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                    padding: const EdgeInsets.only(top: 9.0),
+                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.width * 0.023),
                     child: Consumer<StatisticsProvider>(
                         builder: (context, provider, child) {
                       return StreamBuilder<ModelYearStats?>(
@@ -53,7 +53,7 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Icon(Icons.balance_rounded, size: MediaQuery.of(context).size.width*0.06, color:Colors.black),
-                                  const SizedBox(width: 10),
+                                  SizedBox(width: MediaQuery.of(context).size.width * 0.0277),
                                   Text(
                                     "Balance de ${statsYear?.year}",
                                     style: GoogleFonts.roboto(
@@ -71,7 +71,7 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Icon(Icons.balance_rounded, size: MediaQuery.of(context).size.width*0.06, color:Colors.black),
-                                  const SizedBox(width: 10),
+                                  SizedBox(width: MediaQuery.of(context).size.width * 0.0277),
                                   Text(
                                     "Balance ",
                                     style: GoogleFonts.roboto(
@@ -104,7 +104,7 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                           } else if (snapshot.hasData) {
                             ModelYearStats? statsYear = snapshot.data;
                             return Padding(
-                              padding: const EdgeInsets.symmetric(vertical:8),
+                              padding: EdgeInsets.symmetric(vertical:MediaQuery.of(context).size.width *0.0222),
                               child: Text(
                                     "${statsYear?.totalExpenses ?? 0} XOF",
                                     style: GoogleFonts.roboto(
@@ -116,7 +116,7 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                             );
                           } else {
                             return Padding(
-                              padding: const EdgeInsets.symmetric(vertical:8.0),
+                              padding: EdgeInsets.symmetric(vertical:MediaQuery.of(context).size.width*0.0222),
                               child: Text("0 XOF",style: GoogleFonts.roboto(
                                         fontSize:  MediaQuery.of(context).size.width*0.05,
                                         fontWeight: FontWeight.w600,

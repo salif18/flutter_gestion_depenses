@@ -51,7 +51,7 @@ class _PieChatWidgetState extends State<PieChartWidget> {
                         style: GoogleFonts.roboto(fontSize: 20)));
                 }else{
                 return Padding(
-                  padding: const EdgeInsets.all(20),
+                   padding:EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width*0.0555, vertical: MediaQuery.of(context).size.width*0.03),
                   child: AspectRatio(
                     aspectRatio: 2,
                     child: Container(
@@ -72,12 +72,12 @@ class _PieChatWidgetState extends State<PieChartWidget> {
                                 .map(
                                   (item) => PieChartSectionData(
                                     value: item.value.value.toDouble(),
-                                    radius: 40,
+                                    radius: 30,
                                     showTitle: true,
                                     title: item.value.title,
                                     titlePositionPercentageOffset: 0.4,
                                     titleStyle: GoogleFonts.roboto(
-                                        fontSize: 18,
+                                        fontSize: MediaQuery.of(context).size.width*0.03,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.white),
                                     color: item.value.color,

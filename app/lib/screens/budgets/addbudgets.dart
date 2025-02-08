@@ -91,7 +91,7 @@ class _AddBudgetState extends State<AddBudget> {
                     size: 24, color: Color.fromARGB(255, 202, 202, 202)))),
       ),
       body: Container(
-        padding: const EdgeInsets.all(8),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
         decoration: BoxDecoration(
           color: isDark ? containerBg :Colors.white,
           borderRadius: BorderRadius.circular(20),
@@ -103,7 +103,7 @@ class _AddBudgetState extends State<AddBudget> {
                 children: [
                   _text(context,isDark ,textDark),
                   Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
                     child: TextFormField(
                       controller: _budget,
                       validator: (value) {
@@ -124,11 +124,11 @@ class _AddBudgetState extends State<AddBudget> {
                     ),
                   ),
                   Padding(
-                      padding: const EdgeInsets.all(20),
+                      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
                       child: ElevatedButton.icon(
                           onPressed: postBudgetToServer,
                           style: ElevatedButton.styleFrom(
-                              minimumSize: const Size(320, 50),
+                              minimumSize: Size(MediaQuery.of(context).size.width*0.97, MediaQuery.of(context).size.width*0.13),
                               backgroundColor: const Color(0xFF292D4E)),
                           icon: Icon(Icons.save_rounded,
                               size:  MediaQuery.of(context).size.width*0.05, color: Colors.white),
@@ -144,12 +144,12 @@ class _AddBudgetState extends State<AddBudget> {
 
   Widget _text(BuildContext context, isDark ,textDark) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
             child: Text("Budget du mois",
                 style: GoogleFonts.roboto(
                     fontSize:  MediaQuery.of(context).size.width*0.05,
@@ -157,7 +157,7 @@ class _AddBudgetState extends State<AddBudget> {
                     fontWeight: FontWeight.w500)),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
             child: Text(
                 "Ajouter le budget du mois pour pouvoir enregistrer vos depenses du mois en cours",
                 style: GoogleFonts.aBeeZee(

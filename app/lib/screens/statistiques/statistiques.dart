@@ -84,9 +84,9 @@ class _MyStatsState extends State<MyStats> {
             children: [
               const MyYearBalance(),
               Container(height: 1, width: 350, color: Colors.grey[400]),
-              const SizedBox(height: 10),
+              SizedBox(height: MediaQuery.of(context).size.width*0.0222),
               Padding(
-                padding: const EdgeInsets.only(left: 24, bottom: 10),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.04, bottom: MediaQuery.of(context).size.width*0.02),
                 child: Row(
                   children: [
                     Text(
@@ -101,9 +101,9 @@ class _MyStatsState extends State<MyStats> {
               const Mensuels(),
               const BonusDay(),
               const AnalyseGeneral(),
-              const SizedBox(height: 10),
+              // SizedBox(height: MediaQuery.of(context).size.width * 0.0222),
               Padding(
-                  padding: const EdgeInsets.only(left:20),
+                  padding: EdgeInsets.only(left:MediaQuery.of(context).size.width * 0.0555),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -115,7 +115,7 @@ class _MyStatsState extends State<MyStats> {
                   )),
               const BarChartWidget(),
               Padding(
-                  padding: const EdgeInsets.only(left:20),
+                  padding: EdgeInsets.only(left:MediaQuery.of(context).size.width *0.0555),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -127,7 +127,7 @@ class _MyStatsState extends State<MyStats> {
                   )),
               const PieChartWidget(),
                 Padding(
-                  padding: const EdgeInsets.only(left:20),
+                  padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.0555),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -138,7 +138,7 @@ class _MyStatsState extends State<MyStats> {
                     ],
                   )),
               const LineChartWidget(),
-              const SizedBox(height: 20)
+              SizedBox(height: MediaQuery.of(context).size.width *0.0555)
             ],
           ),
         ),

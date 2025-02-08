@@ -84,10 +84,10 @@ class _EditUserState extends State<EditUser> {
       backgroundColor: isDark? containerDark :Colors.grey[200],
       appBar: const UpdateAppBar(),
       body: Container(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
         child: SingleChildScrollView(
           child: Container(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
             decoration: BoxDecoration(
                 color: isDark ? backgroundDark:Colors.white, 
                 borderRadius: BorderRadius.circular(20)),
@@ -97,7 +97,7 @@ class _EditUserState extends State<EditUser> {
                 _textFieldName(context,),
                 _textFieldNumber(context),
                 _textFieldMail(context),
-                const SizedBox(height: 100),
+                SizedBox(height: MediaQuery.of(context).size.width*0.1),
                 _buttonSend(context),
               ],
             ),
@@ -109,12 +109,12 @@ class _EditUserState extends State<EditUser> {
 
   Widget _text(BuildContext context,isDark , textDark) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
             child: Text(
               "Changer le profil ",
               style:
@@ -124,7 +124,7 @@ class _EditUserState extends State<EditUser> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
             child: Text(
               "Vous pouvez apporter des modifications à votre profil",
               style:
@@ -140,7 +140,7 @@ class _EditUserState extends State<EditUser> {
 
   Widget _textFieldName(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
       child: TextFormField(
         controller: _name,
         keyboardType: TextInputType.name,
@@ -210,7 +210,7 @@ class _EditUserState extends State<EditUser> {
 
   Widget _textFieldNumber(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
       child: TextFormField(
         controller: _numero,
         keyboardType: TextInputType.phone,
@@ -231,7 +231,7 @@ class _EditUserState extends State<EditUser> {
 
   Widget _textFieldMail(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
       child: TextFormField(
         controller: _email,
         keyboardType: TextInputType.emailAddress,
@@ -252,12 +252,12 @@ class _EditUserState extends State<EditUser> {
 
   Widget _buttonSend(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.055),
       child: ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFF292D4E),
               elevation: 5,
-              fixedSize: const Size(320, 50)),
+              fixedSize: Size(MediaQuery.of(context).size.width*0.97, MediaQuery.of(context).size.width*0.13)),
           onPressed: _sendUpdate,
           icon: Icon(Icons.edit, size:  MediaQuery.of(context).size.width*0.05, color: Colors.grey[100]),
           label: Text("Modifier le profil",

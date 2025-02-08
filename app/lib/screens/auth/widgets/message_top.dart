@@ -7,7 +7,7 @@ class MessageTopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-                padding: const EdgeInsets.only(top:60, bottom: 20),
+                padding: EdgeInsets.only(top:MediaQuery.of(context).size.width*0.1, bottom: MediaQuery.of(context).size.width*0.1),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [

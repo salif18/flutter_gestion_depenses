@@ -111,7 +111,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
                   _textFieldNewPassword(context),
                   _textFieldConfirmPassword(context),
                   _textPasswordForget(context),
-                  const SizedBox(height: 100),
+                  SizedBox(height: MediaQuery.of(context).size.width*0.2),
                   _buttonSend(context),
                 ],
               ),
@@ -124,11 +124,11 @@ class _UpdatePasswordState extends State<UpdatePassword> {
 
   Widget _text(BuildContext context,isDark ,textDark) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: EdgeInsets.symmetric(vertical:MediaQuery.of(context).size.width*0.0277),
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.symmetric(vertical:MediaQuery.of(context).size.width*0.0222),
             child: Text(
               "Changer de mot de passe",
               style:
@@ -154,7 +154,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
 
   Widget _textFieldPassword(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).size.width*0.0277),
       child: TextFormField(
         controller: _currentPassword,
         validator: (value) {
@@ -183,7 +183,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
 
   Widget _textFieldNewPassword(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).size.width*0.0277),
       child: TextFormField(
         controller: _newPassword,
         validator: (value) {
@@ -212,7 +212,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
 
   Widget _textFieldConfirmPassword(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).size.width*0.0277),
       child: TextFormField(
         controller: _passwordConfirmation,
         validator: (value) {
@@ -241,7 +241,7 @@ class _UpdatePasswordState extends State<UpdatePassword> {
 
   Widget _textPasswordForget(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
       child: Row(children: [
         TextButton(
             onPressed: () {
@@ -256,12 +256,12 @@ class _UpdatePasswordState extends State<UpdatePassword> {
 
   Widget _buttonSend(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(5),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.005),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF292D4E),
           elevation: 5,
-          fixedSize: const Size(400, 50),
+          fixedSize: Size(MediaQuery.of(context).size.width*0.97, MediaQuery.of(context).size.width*0.13),
         ),
         onPressed: _sendUpdate,
         child: Text(

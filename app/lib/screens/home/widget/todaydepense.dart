@@ -82,15 +82,15 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.0222),
                   child: Container(
-                      padding: const EdgeInsets.all(10),
+                      padding:  EdgeInsets.all(MediaQuery.of(context).size.width * 0.0277),
                       child: Row(
                         children: [
                           Icon(Icons.calendar_month_rounded,
                               color: Colors.red,
                               size: MediaQuery.of(context).size.width * 0.06),
-                          const SizedBox(width: 10),
+                          SizedBox(width: MediaQuery.of(context).size.width * 0.0277),
                           Text(
                             "$day".toLowerCase(),
                             style: GoogleFonts.roboto(
@@ -103,9 +103,9 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                       )),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(4.0),
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.0111),
                   child: Container(
-                      padding: const EdgeInsets.all(10),
+                      padding:  EdgeInsets.all(MediaQuery.of(context).size.width*0.0277),
                       child: Row(
                         children: [
                           Text(
@@ -127,7 +127,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                                     MediaQuery.of(context).size.width * 0.04,
                                 fontWeight: FontWeight.w600),
                           ),
-                          const SizedBox(width: 10),
+                          SizedBox(width: MediaQuery.of(context).size.width*0.0277),
                           Icon(Icons.monetization_on_rounded,
                               color: Colors.amber,
                               size: MediaQuery.of(context).size.width * 0.06),
@@ -153,7 +153,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                     List<ModelExpenses> expenseStream = snapshot.data ?? [];
                     if (expenseStream.isEmpty) {
                       return Container(
-                        padding: const EdgeInsets.all(15),
+                        padding: EdgeInsets.all(MediaQuery.of(context).size.width *0.041),
                         child: Column(
                           children: [
                             Text(
@@ -164,7 +164,7 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                                   fontWeight: FontWeight.w300,
                                   color: isDark ? textDark : Colors.black),
                             ),
-                            const SizedBox(height: 20),
+                             SizedBox(height: MediaQuery.of(context).size.width *0.0555),
                             ElevatedButton(
                               onPressed: () => _showAddExpenses(context),
                               child: Icon(Icons.add,
@@ -207,10 +207,10 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width *0.0277),
       child: Container(
-        padding: const EdgeInsets.all(5),
-        height: 50,
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0083),
+        height: MediaQuery.of(context).size.width *0.1388,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -226,8 +226,8 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                     ),
                     child: regeneredIcon(context,
                         category?["name_categories".toLowerCase()] ?? "")),
-                const SizedBox(
-                  width: 10,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width *0.0277,
                 ),
                 Text(category?["name_categories"] ?? "",
                     style: GoogleFonts.roboto(
@@ -243,8 +243,8 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
                         color: isDark ? Colors.green : Colors.black,
                         fontSize: MediaQuery.of(context).size.width * 0.04,
                         fontWeight: FontWeight.w600)),
-                const SizedBox(
-                  width: 10,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width*0.0277,
                 ),
                 Icon(Icons.monetization_on_sharp,
                     size: MediaQuery.of(context).size.width * 0.06,
@@ -264,13 +264,13 @@ class _MyDepenseDayState extends State<MyDepenseDay> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0555),
             height: MediaQuery.of(context).size.height * 0.8,
             decoration: BoxDecoration(
               color: Colors.grey[100],
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(MediaQuery.of(context).size.width*0.0555),
+                topRight: Radius.circular(MediaQuery.of(context).size.width*0.0555),
               ),
             ),
             child: const SaveExpenses());
