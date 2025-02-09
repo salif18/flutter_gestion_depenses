@@ -356,13 +356,13 @@ class _MyFieldFormsState extends State<MyFieldForms> {
 
   Widget _asKACount(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.02),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.00),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Vous n'avez pas de compte ? -",
-            style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04,),
+            "Vous n'avez pas de compte ?",
+            style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.03,),
           ),
           TextButton(
             onPressed: () {

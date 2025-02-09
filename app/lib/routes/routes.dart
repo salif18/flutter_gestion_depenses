@@ -155,7 +155,7 @@ class _MainRoutesState extends State<MainRoutes> {
                         fontSize:  MediaQuery.of(context).size.width*0.05,
                         fontWeight: FontWeight.w600))),
             contentPadding:
-                EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width*0.055, horizontal: MediaQuery.of(context).size.width*0.055),
+                EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width*0.02, horizontal: MediaQuery.of(context).size.width*0.02),
             content: Column(
                 mainAxisSize: MainAxisSize
                     .min, //pour que l'espace column s'adapte a la taille du contenu

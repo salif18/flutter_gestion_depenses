@@ -396,7 +396,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
     return Padding(
       padding:EdgeInsets.all(MediaQuery.of(context).size.width*0.02),
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text("Déjà un de compte ? -", style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04,)),
+        Text("Déjà un de compte ? -", style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.03,)),
         TextButton(
             onPressed: () {
               Navigator.push(context,

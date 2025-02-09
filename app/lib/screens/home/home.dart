@@ -64,7 +64,7 @@ class _HomeState extends State<Home> {
               delegate: SliverChildListDelegate(
                 [
                   Padding(
-                    padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0222),
+                    padding: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width*0.0222),
                     child: Container(
                       padding:EdgeInsets.only(left:MediaQuery.of(context).size.width*0.0555,right: MediaQuery.of(context).size.width*0.0555,top: MediaQuery.of(context).size.width*0.1399),
                       child: Row(
