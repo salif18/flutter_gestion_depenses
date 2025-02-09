@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width*0.0222),
                     child: Container(
-                      padding:EdgeInsets.only(left:MediaQuery.of(context).size.width*0.0555,right: MediaQuery.of(context).size.width*0.0555,top: MediaQuery.of(context).size.width*0.1399),
+                      padding:EdgeInsets.only(left:MediaQuery.of(context).size.width*0.0555,right: MediaQuery.of(context).size.width*0.0555,top: MediaQuery.of(context).size.width*0.08),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -127,7 +127,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.width*0.0555),
+                  SizedBox(height: MediaQuery.of(context).size.width*0.04),
                   const MyCarousel(),
                 ],
               ),
