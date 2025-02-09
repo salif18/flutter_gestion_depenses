@@ -84,7 +84,7 @@ class _MyStatsState extends State<MyStats> {
             children: [
               const MyYearBalance(),
               Container(height: 1, width: 350, color: Colors.grey[400]),
-              SizedBox(height: MediaQuery.of(context).size.width*0.0222),
+              SizedBox(height: MediaQuery.of(context).size.width*0.04),
               Padding(
                 padding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.04, bottom: MediaQuery.of(context).size.width*0.02),
                 child: Row(

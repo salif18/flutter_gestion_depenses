@@ -21,10 +21,12 @@ class _MyYearBalanceState extends State<MyYearBalance> {
     Color? textDark = provider.colorText;
     return Padding(
       padding: EdgeInsets.only(
-        top: MediaQuery.of(context).padding.top * 1.2),
+        // top: MediaQuery.of(context).padding.top * 1.2
+        ),
       child: Container(
+        color: isDark? null : const Color(0xFF292D4E),
         padding: EdgeInsets.only(
-          left:MediaQuery.of(context).size.width * 0.0555,top:MediaQuery.of(context).size.width * 0.0555
+          left:MediaQuery.of(context).size.width * 0.0555,top:MediaQuery.of(context).size.width * 0.2
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -52,8 +54,8 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                               return Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Icon(Icons.balance_rounded, size: MediaQuery.of(context).size.width*0.06, color:Colors.black),
-                                  SizedBox(width: MediaQuery.of(context).size.width * 0.0277),
+                                  // Icon(Icons.balance_rounded, size: MediaQuery.of(context).size.width*0.06, color:Colors.black),
+                                  // SizedBox(width: MediaQuery.of(context).size.width * 0.0277),
                                   Text(
                                     "Balance de ${statsYear?.year}",
                                     style: GoogleFonts.roboto(
@@ -70,8 +72,8 @@ class _MyYearBalanceState extends State<MyYearBalance> {
                               return Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Icon(Icons.balance_rounded, size: MediaQuery.of(context).size.width*0.06, color:Colors.black),
-                                  SizedBox(width: MediaQuery.of(context).size.width * 0.0277),
+                                  // Icon(Icons.balance_rounded, size: MediaQuery.of(context).size.width*0.06, color:Colors.black),
+                                  // SizedBox(width: MediaQuery.of(context).size.width * 0.0277),
                                   Text(
                                     "Balance ",
                                     style: GoogleFonts.roboto(
