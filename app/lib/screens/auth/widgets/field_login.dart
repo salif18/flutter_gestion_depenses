@@ -68,11 +68,12 @@ class _MyFieldFormsState extends State<MyFieldForms> {
           ModelUser user = ModelUser.fromJson(body['profil']);
           providerAuth.loginButton(body['token'], body["userId"].toString());
           providerProfil.saveToLocalStorage(user);
-          Navigator.pushReplacement(context,
+          Navigator.push(context,
               MaterialPageRoute(builder: (context) => const MainRoutes()));
         } else {
           api.showSnackBarErrorPersonalized(context, body["message"]);
           print(body["message"]);
+           Navigator.pop(context);
         }
       } catch (error) {
         api.showSnackBarErrorPersonalized(context,

@@ -35,11 +35,7 @@ class CategoriesApi {
           style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500)),
       backgroundColor: const Color(0xFF292D4E),
       duration: const Duration(seconds: 5),
-      action: SnackBarAction(
-          label: "",
-          onPressed: () {
-            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-          }),
+     
     ));
   }
 
@@ -50,12 +46,7 @@ class CategoriesApi {
           style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.04, fontWeight: FontWeight.w500)),
       backgroundColor: const Color(0xFF292D4E),
       duration: const Duration(seconds: 5),
-      action: SnackBarAction(
-        label: "",
-        onPressed: () {
-          ScaffoldMessenger.of(context).hideCurrentSnackBar();
-        },
-      ),
+      
     ));
   }
 }

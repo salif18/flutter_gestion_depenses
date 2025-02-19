@@ -49,11 +49,7 @@ class BudgetApi {
       backgroundColor: const Color(0xFF292D4E),
       // const Color(0xFF292D4E),
       duration: const Duration(seconds: 5),
-      action: SnackBarAction(
-          label: "",
-          onPressed: () {
-            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-          }),
+    
     ));
   }
 }

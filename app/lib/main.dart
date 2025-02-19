@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gestionary/providers/statistic_provider.dart';
 import 'package:gestionary/providers/theme_provider.dart';
 import 'package:gestionary/routes/splash_screen.dart';
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent)
+    );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // themeMode:ThemeMode.system,

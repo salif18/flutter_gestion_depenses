@@ -71,6 +71,7 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
         } else {
           api.showSnackBarErrorPersonalized(context, body["message"]);
            print(body["message"]);
+            Navigator.pop(context);
         }
       } catch (error) {
         api.showSnackBarErrorPersonalized(context,
