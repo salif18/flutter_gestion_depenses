@@ -66,8 +66,8 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
           ModelUser user = ModelUser.fromJson(body['profil']);
           provider.loginButton(body['token'], body["userId"].toString());
           providerProfil.saveToLocalStorage(user);
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const MainRoutes()));
+          Navigator.pushAndRemoveUntil(context,
+              MaterialPageRoute(builder: (context) => const MainRoutes()),(Route<dynamic>route)=> false);
         } else {
           api.showSnackBarErrorPersonalized(context, body["message"]);
            print(body["message"]);

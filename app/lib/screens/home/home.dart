@@ -51,157 +51,210 @@ class _HomeState extends State<Home> {
     Color? backgroundDark = provider.colorBackground;
     bool isDark = provider.isDark;
     Color? textDark = provider.colorText;
-    return  Scaffold(
-        backgroundColor: isDark? backgroundDark:Colors.white,
-        body: RefreshIndicator(
-      backgroundColor: const Color.fromARGB(255, 34, 12, 49),
-      color: Colors.grey[100],
-      onRefresh: _refresh,
-      displacement: 50,
-      child:CustomScrollView(
-          slivers: [
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width*0.0222),
-                    child: Container(
-                      padding:EdgeInsets.only(left:MediaQuery.of(context).size.width*0.0555,right: MediaQuery.of(context).size.width*0.0555,top: MediaQuery.of(context).size.width*0.08),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Salut !",
-                                  style: GoogleFonts.roboto(
-                                    color:isDark ? textDark : null,
-                                    fontSize: MediaQuery.of(context).size.width*0.06)),
-                              Consumer<UserInfosProvider>(
-                                  builder: (context, provider, child) {
-                                return FutureBuilder<ModelUser?>(
-                                    future:
-                                        provider.loadProfilFromLocalStorage(),
-                                    builder: (context, snapshot) {
-                                      final profil = snapshot.data;
-                                      return Text("${profil?.name},",
-                                          style: GoogleFonts.roboto(
-                                              fontSize: MediaQuery.of(context).size.width*0.05,
-                                              fontWeight: FontWeight.w900,
-                                              color: isDark ? textDark : const Color.fromARGB(
-                                                  255, 34, 12, 49)));
-                                    });
-                              })
-                            ],
+    return Scaffold(
+      backgroundColor: isDark ? backgroundDark : Colors.white,
+      body: RefreshIndicator(
+        backgroundColor: const Color.fromARGB(255, 34, 12, 49),
+        color: Colors.grey[100],
+        onRefresh: _refresh,
+        displacement: 50,
+        child: DefaultTabController(
+          length: 2,
+          child: CustomScrollView(
+            slivers: [
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left:MediaQuery.of(context).size.width * 0.0222,
+                          right:  MediaQuery.of(context).size.width * 0.0222,
+                          top: MediaQuery.of(context).size.width * 0.1,
+                        ),
+                              
+                      child: Container(
+                        padding: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * 0.0555,
+                            right: MediaQuery.of(context).size.width * 0.0555,
+                            top: MediaQuery.of(context).size.width * 0.08),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Salut !",
+                                    style: GoogleFonts.roboto(
+                                        color: isDark ? textDark : null,
+                                        fontSize:
+                                            MediaQuery.of(context).size.width *
+                                                0.06)),
+                                Consumer<UserInfosProvider>(
+                                    builder: (context, provider, child) {
+                                  return FutureBuilder<ModelUser?>(
+                                      future:
+                                          provider.loadProfilFromLocalStorage(),
+                                      builder: (context, snapshot) {
+                                        final profil = snapshot.data;
+                                        return Text("${profil?.name},",
+                                            style: GoogleFonts.roboto(
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.05,
+                                                fontWeight: FontWeight.w900,
+                                                color: isDark
+                                                    ? textDark
+                                                    : const Color.fromARGB(
+                                                        255, 34, 12, 49)));
+                                      });
+                                })
+                              ],
+                            ),
+
+                            Column(
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const Budgets()));
+                                    },
+                                    icon: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.12,
+                                      height:
+                                          MediaQuery.of(context).size.width *
+                                              0.12,
+                                      decoration: BoxDecoration(
+                                          color: const Color(0xFF292D4E),
+                                          borderRadius:
+                                              BorderRadius.circular(5)),
+                                      child: Icon(LineIcons.balanceScale,
+                                          color: isDark
+                                              ? textDark
+                                              : const Color.fromARGB(
+                                                  255, 231, 150, 0),
+                                          size: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.08),
+                                    )),
+                                // Text("budgets",
+                                //     style: GoogleFonts.aBeeZee(
+                                //        color:isDark ? textDark : null,
+                                //         fontSize: MediaQuery.of(context).size.width*0.04,
+                                //         fontWeight: FontWeight.w600))
+                              ],
+                            ),
+
+                            // const SizedBox(width: 5)
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.width * 0.04),
+                    const MyCarousel(),
+                  ],
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.width * 0.12,
+                ),
+              ),
+              SliverPersistentHeader(
+                  delegate: HeaderSliver(
+                child: Container(
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.width * 0.0555),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(
+                            MediaQuery.of(context).size.width * 0.0694),
+                        topRight: Radius.circular(
+                            MediaQuery.of(context).size.width * 0.0694)),
+                    color: isDark ? backgroundDark : const Color(0xfff0f1f5),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.0555,
+                        right: MediaQuery.of(context).size.width * 0.0555),
+                    child: Material(
+                      color: const Color(0xFFD5CEDD),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.horizontal(
+                              left: Radius.circular(
+                                  MediaQuery.of(context).size.width * 0.006),
+                              right: Radius.circular(
+                                  MediaQuery.of(context).size.width * 0.006))),
+                      child: TabBar(
+                        indicator: BoxDecoration(
+                            color: const Color(0xFF292D4E),
+                            borderRadius: BorderRadius.circular(0)),
+                        indicatorSize: TabBarIndicatorSize.tab,
+                        labelColor: const Color.fromARGB(255, 253, 253, 253),
+                        unselectedLabelColor:
+                            const Color.fromARGB(255, 48, 33, 58),
+                        tabs: [
+                          Tab(
+                            child: Text(
+                              "Aujourd'hui",
+                              style: GoogleFonts.aBeeZee(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.04),
+                            ),
                           ),
-                            
-                          Column(
-                            children: [
-                              IconButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Budgets()));
-                                  },
-                                  icon:Container(
-                                    width: MediaQuery.of(context).size.width*0.12,height: MediaQuery.of(context).size.width*0.12,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFF292D4E),
-                                      borderRadius: BorderRadius.circular(5)),
-                                    child: Icon(LineIcons.balanceScale,
-                                     color:isDark ? textDark : const Color.fromARGB(255, 231, 150, 0),
-                                        size: MediaQuery.of(context).size.width*0.08),
-                                  )),
-                              // Text("budgets",
-                              //     style: GoogleFonts.aBeeZee(
-                              //        color:isDark ? textDark : null,
-                              //         fontSize: MediaQuery.of(context).size.width*0.04,
-                              //         fontWeight: FontWeight.w600))
-                            ],
-                          ),
-                            
-                          // const SizedBox(width: 5)
+                          Tab(
+                            child: Text(
+                              "Mois",
+                              style: GoogleFonts.aBeeZee(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.04),
+                            ),
+                          )
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.width*0.04),
-                  const MyCarousel(),
-                ],
-              ),
-            ),
-            SliverFillRemaining(
-              child: DefaultTabController(
-                length: 2,
-                child: Column(
+                ),
+              )),
+              SliverFillRemaining(
+                child: TabBarView(
                   children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.width*0.12,
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: MediaQuery.of(context).size.width*0.0555),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(MediaQuery.of(context).size.width*0.0694),
-                            topRight: Radius.circular(MediaQuery.of(context).size.width*0.0694)),
-                        color:isDark ? backgroundDark : const Color(0xfff0f1f5),                          
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.0555, right: MediaQuery.of(context).size.width*0.0555),
-                        child: Material(
-                          color: const Color(0xFFD5CEDD),       
-                          shape: RoundedRectangleBorder(                      
-                              borderRadius: BorderRadius.horizontal(
-                                  left: Radius.circular(MediaQuery.of(context).size.width*0.006),
-                                  right: Radius.circular(MediaQuery.of(context).size.width*0.006))),
-                          child: TabBar(                            
-                            indicator: BoxDecoration(
-                                color: const Color(0xFF292D4E),
-                                borderRadius: BorderRadius.circular(0)),
-                            indicatorSize: TabBarIndicatorSize.tab,
-                            labelColor:
-                                const Color.fromARGB(255, 253, 253, 253),
-                            unselectedLabelColor:
-                                const Color.fromARGB(255, 48, 33, 58),
-                            tabs: [
-                              Tab(
-                                child: Text(
-                                  "Aujourd'hui",
-                                  style: GoogleFonts.aBeeZee(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: MediaQuery.of(context).size.width*0.04),
-                                ),
-                              ),
-                              Tab(
-                                child: Text(
-                                  "Mois",
-                                  style: GoogleFonts.aBeeZee(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: MediaQuery.of(context).size.width*0.04),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Expanded(
-                      child: TabBarView(
-                        children: [
-                          MyDepenseDay(),
-                          MyMonthDepense(),
-                        ],
-                      ),
-                    ),
+                    MyDepenseDay(),
+                    MyMonthDepense(),
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
+  }
+}
+
+class HeaderSliver extends SliverPersistentHeaderDelegate {
+  final child;
+  HeaderSliver({required this.child});
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffets, bool overlapsContent) {
+    return child;
+  }
+
+  @override
+  double get minExtent => kToolbarHeight;
+
+  @override
+  double get maxExtent => kToolbarHeight;
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate) {
+    return false;
   }
 }

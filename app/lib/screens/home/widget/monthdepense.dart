@@ -150,39 +150,45 @@ double responsiveValue(BuildContext context, double baseValue) {
                 stream: dataStream.stream,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Container(
-                      child: const Center(
-                          child: CircularProgressIndicator(
-                        strokeWidth: BorderSide.strokeAlignInside,
-                        color: Colors.grey,
-                      )),
+                    return Expanded(
+                      child: SingleChildScrollView(
+                        child: Center(
+                            child: CircularProgressIndicator(
+                          // strokeWidth: BorderSide.strokeAlignInside,
+                          // color: Colors.grey,
+                        )),
+                      ),
                     );
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else if (snapshot.hasData) {
                     List<ModelExpenses> expenseStream = snapshot.data ?? [];
                     if (expenseStream.isEmpty) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0416),
-                        child: Column(
-                          children: [
-                            Text(
-                              "Salut n'oublier pas d'insérer vos dépenses du jours",
-                              style: GoogleFonts.roboto(
-                                  fontSize:
-                                      MediaQuery.of(context).size.width * 0.04,
-                                  fontWeight: FontWeight.w300,
-                                  color: isDark ? textDark : null),
+                      return Expanded(
+                        child: SingleChildScrollView(
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            padding: EdgeInsets.all(MediaQuery.of(context).size.width*0.0416),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Salut n'oublier pas d'insérer vos dépenses du jours",
+                                  style: GoogleFonts.roboto(
+                                      fontSize:
+                                          MediaQuery.of(context).size.width * 0.04,
+                                      fontWeight: FontWeight.w300,
+                                      color: isDark ? textDark : null),
+                                ),
+                                SizedBox(height: MediaQuery.of(context).size.width*0.0555),
+                                ElevatedButton(
+                                  onPressed: () => _showAddExpenses(context),
+                                  child: Icon(Icons.add,
+                                      size:
+                                          MediaQuery.of(context).size.width * 0.06),
+                                )
+                              ],
                             ),
-                            SizedBox(height: MediaQuery.of(context).size.width*0.0555),
-                            ElevatedButton(
-                              onPressed: () => _showAddExpenses(context),
-                              child: Icon(Icons.add,
-                                  size:
-                                      MediaQuery.of(context).size.width * 0.06),
-                            )
-                          ],
+                          ),
                         ),
                       );
                     } else {
