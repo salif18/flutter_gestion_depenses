@@ -1,0 +1,2 @@
+C:/Users/KONATE/Documents/Devapp/flutter expense/app/android/app/.cxx/Debug/3yl5a4e4/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/KONATE/Documents/Devapp/flutter expense/app/android/app/.cxx/Debug/3yl5a4e4/x86_64/CMakeFiles/rebuild_cache.dir
