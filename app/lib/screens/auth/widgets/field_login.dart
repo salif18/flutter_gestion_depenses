@@ -365,19 +365,21 @@ class _MyFieldFormsState extends State<MyFieldForms> {
             "Vous n'avez pas de compte ?",
             style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.03,),
           ),
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const RegistreWidget()),
-              );
-            },
-            child: Text(
-              "Créer",
-              style: GoogleFonts.roboto(
-                fontSize: MediaQuery.of(context).size.width*0.04,
-                fontWeight: FontWeight.bold,
-                color: Colors.deepPurple[400],
+          Expanded(
+            child: TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RegistreWidget()),
+                );
+              },
+              child: Text(
+                "Créer",
+                style: GoogleFonts.roboto(
+                  fontSize: MediaQuery.of(context).size.width*0.04,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.deepPurple[400],
+                ),
               ),
             ),
           ),

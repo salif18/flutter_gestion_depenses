@@ -179,9 +179,10 @@ class _HomeState extends State<Home> {
                     color: isDark ? backgroundDark : const Color(0xfff0f1f5),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width * 0.0555,
-                        right: MediaQuery.of(context).size.width * 0.0555),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.0555,
+                      
+                        ),
                     child: Material(
                       color: const Color(0xFFD5CEDD),
                       shape: RoundedRectangleBorder(

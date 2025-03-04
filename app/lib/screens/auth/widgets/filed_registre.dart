@@ -398,18 +398,20 @@ class _FieldFormRegistreState extends State<FieldFormRegistre> {
       padding:EdgeInsets.all(MediaQuery.of(context).size.width*0.02),
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text("Déjà un de compte ? -", style: GoogleFonts.roboto(fontSize: MediaQuery.of(context).size.width*0.03,)),
-        TextButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const MyLogin()));
-            },
-            child: Text(
-              "Sign",
-              style: GoogleFonts.roboto(
-                  fontSize: MediaQuery.of(context).size.width*0.04,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.deepPurple[400]),
-            ))
+        Expanded(
+          child: TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const MyLogin()));
+              },
+              child: Text(
+                "Se connecter",
+                style: GoogleFonts.roboto(
+                    fontSize: MediaQuery.of(context).size.width*0.04,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.deepPurple[400]),
+              )),
+        )
       ]),
     );
   }
